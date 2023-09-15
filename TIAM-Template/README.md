@@ -1,23 +1,23 @@
-# TÍTULO DO PROJETO
+# Show do Pobrao
 
-`CURSO`
+`Analise e desenvolvimento de sistemas`
 
-`DISCIPLINA`
+`Trabalho Interdisciplinar: Aplicações móveis`
 
-`SEMESTRE`
+`4o período`
 
 Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
+* Matheus Melgaço Barroso
+* Pedro Veloso Soares
+* Rafael Henrique Freitas de Lima
+* Ricardo Cardoso Alencar
 
 ## Orientador
 
-* Nome completo do professor 1
+* Pedro Felipe Alves de Oliveira
 
 ## Instruções de utilização
 
