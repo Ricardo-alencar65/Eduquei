@@ -28,9 +28,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Maria quer usar | o "Show do Milhão" como parte de suas aulas| para ajudar os alunos a revisarem os conceitos aprendidos nas disciplinas.|
+|Maria quer usar | o "Show do Pobrão" como parte de suas aulas| para ajudar os alunos a revisarem os conceitos aprendidos nas disciplinas.|
 |Pedro deseja | competir com amigos e familiares| em um ambiente virtual e mostrar seu conhecimento.|
-|André quer usar| o "Show do Milhão" como uma atividade que ele, seus filhos adolescentes | unir gerações e ao mesmo tempo educar.|
+|André quer usar| o "Show do Pobrão" como uma atividade que ele, seus filhos adolescentes | unir gerações e ao mesmo tempo educar.|
 
 > **Links Úteis**:
 > - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
