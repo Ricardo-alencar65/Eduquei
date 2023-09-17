@@ -1,13 +1,9 @@
 # Introdução
 
-Texto descritivo com a visão geral do projeto abordado. Inclui o contexto, o problema, os objetivos, a justificativa e o público-alvo do projeto.
+O projeto "Show do Pobrão" é um jogo educativo inspirado ao "Show do Milhão" pretende proporcionar o aprendizado interativo e educação, desafiando o conhecimento e a inteligência dos participantes em uma atmosfera de competição saudável usufruindo de perguntas variadas, pontuação e ranking. Este projeto visa educar e desafiar a mente das pessoas, incentivando-as a aprender e expandir seu conhecimento em uma variedade de campos. Espera-se que este projeto continue a inspirar uma paixão pelo aprendizado e pelo pensamento crítico.
 
 ## Problema
-Nesse momento você deve apresentar o problema que a sua aplicação deve  resolver. No entanto, não é a hora de comentar sobre a aplicação.
-
-Descreva também o contexto em que essa aplicação será usada, se  houver: empresa, tecnologias, etc. Novamente, descreva apenas o que de  fato existir, pois ainda não é a hora de apresentar requisitos  detalhados ou projetos.
-
-Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thinking, que permite um olhar de ponta a ponta para o problema.
+A aplicação que a equipe irá realizar o projeto Show do Pobrao onde haverá perguntas de conhecimento geral gerando o aprendizado interativo, avaliação e nivel de conhecimento, promovendo a competição saudável tambem motivando a curiosidade e o aprendizado. Desta forma contribuindo com resolução de uma variedade de problemas educacionais e sociais de forma simples.
 
 > **Links Úteis**:
 > - [Objetivos, Problema de pesquisa e Justificativa](https://medium.com/@versioparole/objetivos-problema-de-pesquisa-e-justificativa-c98c8233b9c3)
@@ -16,26 +12,20 @@ Nesse momento, o grupo pode optar por fazer uso  de ferramentas como Design Thin
 
 ## Objetivos
 
-Aqui você deve descrever os objetivos do trabalho indicando que o objetivo geral é desenvolver um software para solucionar o problema apresentado acima. 
-
-Apresente também alguns (pelo menos 2) objetivos específicos dependendo de onde você vai querer concentrar a sua prática investigativa, ou como você vai aprofundar no seu trabalho.
+Objetivo deste projeto esta direcionando a competição saudável e a avaliação e nivel de conhecimento. O foco da aplicação esta na forma de contruir o ranking com a variedade de questoes respondidas corretamente e pontos adquiridos durante o dia assim quando se estiver no topo do ranking ira visualizar seu nivel de conhecimento.
  
 > **Links Úteis**:
 > - [Objetivo geral e objetivo específico: como fazer e quais verbos utilizar](https://blog.mettzer.com/diferenca-entre-objetivo-geral-e-objetivo-especifico/)
 
 ## Justificativa
 
-Descreva a importância ou a motivação para trabalhar com esta aplicação que você escolheu. Indique as razões pelas quais você escolheu seus objetivos específicos ou as razões para aprofundar em certos aspectos do software.
-
-O grupo de trabalho pode fazer uso de questionários, entrevistas e dados estatísticos, que podem ser apresentados, com o objetivo de esclarecer detalhes do problema que será abordado pelo grupo.
-
+A importância de desenvolver jogos educacionais está relacionada à capacidade de tornar o aprendizado mais eficaz, envolvente e motivador, além de desenvolver uma ampla variedade de habilidades relevantes para o mundo atual. Essas aplicações desempenham um papel crucial na educação e no desenvolvimento pessoal.
 > **Links Úteis**:
 > - [Como montar a justificativa](https://guiadamonografia.com.br/como-montar-justificativa-do-tcc/)
 
 ## Público-Alvo
 
-Descreva quem serão as pessoas que usarão a sua aplicação indicando os diferentes perfis. O objetivo aqui não é definir quem serão os clientes ou quais serão os papéis dos usuários na aplicação. A ideia é, dentro do possível, conhecer um pouco mais sobre o perfil dos usuários: conhecimentos prévios, relação com a tecnologia, relações
-hierárquicas, etc.
+O público-alvo deste projeto às crianças e sua busca por conhecer e aprender uma ampla variedade de questões sociais e educacionais à também o público jovem adulto que visa performar seu conhecimento e buscar o alto nível em avalições educacionais.
 
 Adicione informações sobre o público-alvo por meio de uma descrição textual, diagramas de personas e mapa de stakeholders.
 
