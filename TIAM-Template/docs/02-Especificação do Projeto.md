@@ -2,15 +2,15 @@
 
 <span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
 
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+O problema central abordado pelo projeto "Show do Pobrão" é a falta de oportunidades para o público em geral testar seus conhecimentos e aprender de forma interativa. Além disso, há uma necessidade de fornecer entretenimento educativo que seja desafiador e estimulante, incentivando o aprendizado e a competição desafiando o conhecimento e a inteligência dos participantes.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+-Maria, 34 anos, Professora: Maria é uma professora que deseja uma ferramenta educacional interativa para envolver seus alunos em um ambiente de aprendizado divertido.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+-Pedro, 27 anos, Estudante Universitário: Pedro é um estudante que busca desafios intelectuais e deseja testar seu conhecimento enquanto se diverte.
+
+-André, 45 anos, Pai de Família: André é um pai que procura uma atividade em família que possa unir gerações e ao mesmo tempo educar seus filhos.
 
 > **Links Úteis**:
 > - [Rock Content](https://rockcontent.com/blog/personas/)
@@ -28,10 +28,9 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
-
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
+|Maria quer usar | o "Show do Milhão" como parte de suas aulas| para ajudar os alunos a revisarem os conceitos aprendidos nas disciplinas.|
+|Pedro deseja | competir com amigos e familiares| em um ambiente virtual e mostrar seu conhecimento.|
+|André quer usar| o "Show do Milhão" como uma atividade que ele, seus filhos adolescentes | unir gerações e ao mesmo tempo educar.|
 
 > **Links Úteis**:
 > - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
@@ -50,15 +49,21 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
-|RF-001| Permitir que o usuário cadastre tarefas | ALTA | 
-|RF-002| Emitir um relatório de tarefas no mês   | MÉDIA |
+|RF-001| O sistema deve apresentar uma ampla variedade de perguntas de múltipla escolha em diferentes categorias.| ALTA | 
+|RF-002| Os jogadores devem ganhar pontos com base em respostas corretas e em tempo hábil.| MÉDIA |
+|RF-003| Deve haver um sistema de ranking que classifique os jogadores com base em suas pontuações.| MÉDIA |
+|RF-004| A plataforma deve manter uma extensa biblioteca de perguntas que pode ser atualizada regularmente.| BAIXA |
+|RF-005| Uma interface de administração deve permitir aos administradores adicionar, editar e remover perguntas da biblioteca.| MÉDIA |
 
 ### Requisitos não Funcionais
 
 |ID     | Descrição do Requisito  |Prioridade |
 |-------|-------------------------|----|
-|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | MÉDIA | 
-|RNF-002| Deve processar requisições do usuário em no máximo 3s |  BAIXA | 
+|RNF-001| O sistema deve ser responsivo para rodar em um dispositivos móvel | ALTA | 
+|RNF-002| A plataforma deve ser intuitiva e fácil de usar para jogadores de todas as idades. | BAIXA |
+|RNF-003| A aplicação deve ser compatível com uma variedade de navegadores web, como Chrome, Firefox, Safari e Edge. | BAIXA |
+|RNF-004| Testes de segurança e desempenho devem ser conduzidos regularmente. | MÉDIA |
+|RNF-005| Deve processar requisições do usuário em no máximo 3s | BAIXA |
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
@@ -71,9 +76,6 @@ Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Cla
   correspondem a uma característica técnica, seja de usabilidade,
   desempenho, confiabilidade, segurança ou outro (ex: suporte a
   dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -82,9 +84,10 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |ID| Restrição                                             |
 |--|-------------------------------------------------------|
 |01| O projeto deverá ser entregue até o final do semestre |
-|02| Não pode ser desenvolvido um módulo de backend        |
-
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
+|02| Orçamento limitado para o desenvolvimento do aplicativo e da plataforma web |
+|03| Prazo de entrega de 12 meses para o lançamento da primeira versão. |
+|04| A plataforma deve estar disponível 24 horas por dia, 7 dias por semana. |
+|05| O projeto deve ser projetado para lidar com um grande número de jogadores simultâneos à medida que a base de usuários cresce. |
 
 > **Links Úteis**:
 > - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
