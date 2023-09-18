@@ -31,6 +31,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 |Maria quer usar | o "Show do Pobrão" como parte de suas aulas| para ajudar os alunos a revisarem os conceitos aprendidos nas disciplinas.|
 |Pedro deseja | competir com amigos e familiares| em um ambiente virtual e mostrar seu conhecimento.|
 |André quer usar| o "Show do Pobrão" como uma atividade que ele, seus filhos adolescentes | unir gerações e ao mesmo tempo educar.|
+|--------------------|------------------------------------|----------------------------------------|
 
 > **Links Úteis**:
 > - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
@@ -54,6 +55,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RF-003| Deve haver um sistema de ranking que classifique os jogadores com base em suas pontuações.| MÉDIA |
 |RF-004| A plataforma deve manter uma extensa biblioteca de perguntas que pode ser atualizada regularmente.| BAIXA |
 |RF-005| Uma interface de administração deve permitir aos administradores adicionar, editar e remover perguntas da biblioteca.| MÉDIA |
+|------|-----------------------------------------|----|
 
 ### Requisitos não Funcionais
 
@@ -64,6 +66,7 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-003| A aplicação deve ser compatível com uma variedade de navegadores web, como Chrome, Firefox, Safari e Edge. | BAIXA |
 |RNF-004| Testes de segurança e desempenho devem ser conduzidos regularmente. | MÉDIA |
 |RNF-005| Deve processar requisições do usuário em no máximo 3s | BAIXA |
+|--|-------------------------------------------------------|
 
 Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
 
@@ -88,6 +91,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |03| Prazo de entrega de 12 meses para o lançamento da primeira versão. |
 |04| A plataforma deve estar disponível 24 horas por dia, 7 dias por semana. |
 |05| O projeto deve ser projetado para lidar com um grande número de jogadores simultâneos à medida que a base de usuários cresce. |
+|--|-------------------------------------------------------|
 
 > **Links Úteis**:
 > - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
@@ -103,6 +107,7 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |Administrador| Adicionar Pergunta- adicionar novas perguntas à biblioteca de perguntas do sistema|
 |Administrador| Editar Pergunta- fazer alterações em perguntas existentes, como correções ou atualizações.|
 |Administrador| Remover Pergunta- excluir perguntas da biblioteca se necessário|
+|--|-------------------------------------------------------|
 
 
 ![Diagrama casos de uso](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/a29c176b-fec9-4994-9abd-be24157fb884)
@@ -149,7 +154,15 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 ![Simple Project Timeline](img/02-project-timeline.png)
 
 ## Gestão de Orçamento
+| Categoria de Custo        | Estimativa de Custo (em R$) |
+|---------------------------|-----------------------------|
+| Desenvolvimento do Aplicativo | R$ 20,00|
+| Design de Interface de Usuário |   R$20,00 |
+| Testes e Garantia de Qualidade |  R$ 20,00|
+| Marketing e Publicidade |  R$20,00 |
+| Hospedagem e Serviços em Nuvem | R$20,00 |
+| Manutenção |  R$20,00 |
+| Outros Custos |  R$20,00 |
+| Total |  [Soma de todos os custos estimados] |
 
-O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
 
-![Orçamento](img/02-orcamento.png)
