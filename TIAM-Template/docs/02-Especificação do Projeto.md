@@ -97,17 +97,15 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 
 |Ator|    Ação                                       |
 |--|-------------------------------------------------------|
-|Jogador| Realizar pergunta-iniciar um jogo respondendo a uma pergunta do sistema |
-|Jogador| Visualizar Pontuação-verificar sua pontuação atual durante o jogo. |
+|Jogador| Realizar pergunta- iniciar um jogo respondendo a uma pergunta do sistema |
+|Jogador| Visualizar Pontuação- verificar sua pontuação atual durante o jogo. |
 |Jogador| Visualizar Ranking- visualizar a classificação dos jogadores em uma tabela de ranking |
-|Administrador| Adicionar Pergunta-adicionar novas perguntas à biblioteca de perguntas do sistema|
-|Administrador| Editar Pergunta-fazer alterações em perguntas existentes, como correções ou atualizações.|
-|Administrador| Remover Pergunta-excluir perguntas da biblioteca se necessário|
+|Administrador| Adicionar Pergunta- adicionar novas perguntas à biblioteca de perguntas do sistema|
+|Administrador| Editar Pergunta- fazer alterações em perguntas existentes, como correções ou atualizações.|
+|Administrador| Remover Pergunta- excluir perguntas da biblioteca se necessário|
 
 
 ![Diagrama casos de uso](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/a29c176b-fec9-4994-9abd-be24157fb884)
-
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagrama de Casos de Uso”.
 
 > **Links Úteis**:
 > - [Criando Casos de Uso](https://www.ibm.com/docs/pt-br/elm/6.0?topic=requirements-creating-use-cases)
