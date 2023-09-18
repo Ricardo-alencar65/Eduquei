@@ -156,13 +156,13 @@ O gerenciamento adequado de tarefas contribuirá para que o projeto alcance alto
 ## Gestão de Orçamento
 | Categoria de Custo        | Estimativa de Custo (em R$) |
 |---------------------------|-----------------------------|
-| Desenvolvimento do Aplicativo | R$ 20,00|
-| Design de Interface de Usuário |   R$20,00 |
-| Testes e Garantia de Qualidade |  R$ 20,00|
-| Marketing e Publicidade |  R$20,00 |
-| Hospedagem e Serviços em Nuvem | R$20,00 |
-| Manutenção |  R$20,00 |
-| Outros Custos |  R$20,00 |
-| Total |  [Soma de todos os custos estimados] |
+| Desenvolvimento do Aplicativo | R$60.000,00 |
+| Design de Interface de Usuário | R$60.000,00 |
+| Testes e Garantia de Qualidade | R$40.000,00 |
+| Marketing e Publicidade | R$80.000,00 |
+| Hospedagem e Serviços em Nuvem | R$70.000,00 |
+| Manutenção | R$30.000,00 |
+| Outros Custos | R$10.000,00 |
+| Total |  R$350.000,00|
 
 
