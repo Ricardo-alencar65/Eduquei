@@ -7,8 +7,12 @@ O Scrum é uma metodologia altamente iterativa e flexível que prioriza a entreg
 
 ## Relação de Ambientes de Trabalho
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
-Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
+Repositório de Código (Git)	Git, GitHub/GitLab
+Ambiente de Desenvolvimento	IDE Visual Studio Code, ExpoGO, Firebase.com
+Ferramenta de Comunicação Microsoft Teams, Discord, Whatsapp	
+Ferramenta de Desenho de Tela (Wireframing) Sketch, Paint, Lapis e Papel
+Ambiente de Testes (Emuladores/Simuladores)	Android Emulator (para Android), Xcode Simulator (para iOS)	
+Sistema de Controle de Versão (Git)	GitHub, GitLab
 
 ## Controle de Versão
 
@@ -73,7 +77,7 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código - Visual Studio Code
+- Editor de código - Visual Studio Code, ExpoGO, Firebase.com 
 - Ferramentas de comunicação - Discord, MIcrosoft Teams e Whatsapp
 - Ferramentas de desenho de tela - Paint, Sketch, lapis e papel
 
