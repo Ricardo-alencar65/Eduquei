@@ -17,8 +17,7 @@ As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas d
 
 ## Wireframes
 ![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/2dd856b3-8dd2-4dab-9dd6-3f86e74b08c6)
-
-![Exemplo de Wireframe](img/wireframe-example.png)
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/c637d402-ddc5-4db9-bc3b-7deb4e5f404a)
 
 São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
  
