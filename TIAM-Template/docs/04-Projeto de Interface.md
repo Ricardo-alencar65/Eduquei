@@ -8,7 +8,8 @@ Visão geral da interação do usuário pelas telas do sistema e protótipo inte
  Apresente as principais interfaces da plataforma. Discuta como ela foi elaborada de forma a atender os requisitos funcionais, não funcionais e histórias de usuário abordados nas <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a>.
 
 ## Diagrama de Fluxo
-https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/1c4db593-7042-47fa-8351-8ede1165c51d
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/423021c4-1aba-4b2e-b501-90226946410f)
+
 
 As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
