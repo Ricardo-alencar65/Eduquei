@@ -42,19 +42,19 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 ## Tecnologias Utilizadas
 
 |ID| Tecnologias Utilizadas  |
-|------|---------------------|----|
-|001|Git, GitHub/GitLab|----|
-|002|Visual Studio Code|----|
-|003|Draw.io|----|
-|004|ExpoGo|----|
-|005|Firebase.com|----|
-|006|Sketch|----|
-|007|Paint|----|
-|008|Discord|----|
-|009|Whatsapp|----|
-|010|Microsft Teams|----|
-|011|AWS|----|
-|------|-------------------|----|
+|------|---------------------|
+|001|Git, GitHub/GitLab|
+|002|Visual Studio Code|
+|003|Draw.io|
+|004|ExpoGo|
+|005|Firebase.com|
+|006|Sketch|
+|007|Paint|
+|008|Discord|
+|009|Whatsapp|
+|010|Microsft Teams|
+|011|AWS|
+|------|-------------------|
 
 Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário.
 
