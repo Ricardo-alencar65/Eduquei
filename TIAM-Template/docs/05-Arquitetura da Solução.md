@@ -44,7 +44,7 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 |002|Visual Studio Code|
 |003|Draw.io|
 |004|ExpoGo|
-|005|Firebase.com|
+|005|MySQLWorkbanch|
 |006|Sketch|
 |007|Paint|
 |008|Discord|
