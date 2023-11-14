@@ -11,7 +11,7 @@ const Stack = createStackNavigator();
 
 export default function App() {
   return (
-  <Router></Router>
+  <EscolhaArea></EscolhaArea>
   );
 }
 
