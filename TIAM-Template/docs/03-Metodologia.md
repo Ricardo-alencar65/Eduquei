@@ -77,7 +77,7 @@ Coloque  informações sobre detalhes da implementação do Scrum seguido pelo g
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código - Visual Studio Code, ExpoGO, Firebase.com 
+- Editor de código - Visual Studio Code, ExpoGO, MySQLWorkbanch
 - Ferramentas de comunicação - Discord, MIcrosoft Teams e Whatsapp
 - Ferramentas de desenho de tela - Paint, Sketch, lapis e papel
 
