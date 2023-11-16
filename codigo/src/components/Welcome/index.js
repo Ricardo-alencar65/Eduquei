@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         justifyContent: "center", 
         maxWidth: 500,
         flex: 1,
-        marginTop: 100
+        marginTop: 100,
     },
     textTitle:{
         justifyContent: "center",

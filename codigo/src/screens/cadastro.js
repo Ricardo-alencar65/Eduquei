@@ -1,22 +1,21 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
-export default function LoginScreen({ navigation }) {
+export default function SignupScreen({ navigation }) {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Cadastro</Text>
 
+            <TextInput style={styles.input} placeholder="Nome" placeholderTextColor="#aaa" />
+            <TextInput style={styles.input} placeholder="Sobrenome" placeholderTextColor="#aaa" />
             <TextInput style={styles.input} placeholder="Email" placeholderTextColor="#aaa" keyboardType="email-address" />
             <TextInput style={styles.input} placeholder="Senha" placeholderTextColor="#aaa" secureTextEntry={true} />
 
             <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
-                <Text style={styles.buttonText}>Entrar</Text>
+                <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                <Text style={styles.forgotPassword}>Cadastro</Text>
-            </TouchableOpacity>
-            <Image style={styles.logo} source={require('../../assets/quiz.png')} />
+           <Image style={styles.logo} source={require('../../assets/quiz.png')} />
         </View>
     );
 }
@@ -52,10 +51,6 @@ const styles = StyleSheet.create({
     buttonText: {
         color: '#fff',
         fontSize: 18,
-    },
-    forgotPassword: {
-        color: '#fff',
-        marginTop: 15,
     },
     logo: {
         width: 150,

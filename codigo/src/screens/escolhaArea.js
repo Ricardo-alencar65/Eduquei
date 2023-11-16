@@ -2,8 +2,7 @@ import React from "react"
 import{ View, Text, TouchableOpacity, Image, StyleSheet, StatusBar} from "react-native"
 
 
-
-export default function escolhaArea({navigation}){
+export default function EscolhaArea(navigation){
     return(
         <View style={styles.boxWelcome}>
             <Text style={{color: "#ffffff", paddingTop: 100, marginBottom: 20, fontSize: 32}}>Quiz conhecimentos gerais</Text>
@@ -32,7 +31,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         marginBottom: 20,
-        width: '70%',  // Ajuste conforme necessário
+        width: '70%',
     },
     button: {
         flex: 1,
@@ -47,7 +46,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: 'rgba(132, 53, 222, 1)',
         borderRadius: 50,
-        width: '70%',  // Ajuste conforme necessário
+        width: '70%', 
         marginHorizontal: 10,
     },
     buttonText: {

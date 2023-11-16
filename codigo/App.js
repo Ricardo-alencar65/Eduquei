@@ -5,21 +5,25 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import EscolhaArea from './src/screens/escolhaArea';
 import Router from './src/components/router';
-import Questoes from './src/screens/questoes'
+import Login from './src/screens/login' 
+import Cadastro from './src/screens/cadastro';
+import Desempenho from './src/screens/desempenho'
+import Questao from './src/screens/questoes'
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-  <EscolhaArea></EscolhaArea>
+    <View style={styles.container}>
+      <Login></Login>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    
     backgroundColor: "#1c1c1c"
   },
   title: {
