@@ -9,13 +9,14 @@ import Login from './src/screens/login'
 import Cadastro from './src/screens/cadastro';
 import Desempenho from './src/screens/desempenho'
 import Questao from './src/screens/questoes'
+import Questoes from './src/screens/questoes';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Router></Router>
+      <Questoes></Questoes>
     </View>
   );
 }

@@ -1,105 +1,93 @@
-import React from "react"
-import{ View, Text, TouchableOpacity, Image, StyleSheet, StatusBar} from "react-native"
+import React from "react";
+import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
 
+export default function EscolhaArea({ navigation }) {
+    return (
+        <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+            <View style={styles.boxWelcome}>
+                <Text style={styles.quizTitle}>Quiz Conhecimentos Gerais</Text>
+                <Text style={styles.textTitle}>Escolha uma categoria</Text>
+                <Text style={styles.textBody}>As perguntas serão referentes a uma das áreas</Text>
 
-export default function EscolhaArea({ navigation }){
-    return(
-        <View style={styles.boxWelcome}>
-            <Text style={{color: "#ffffff", paddingTop: 100, marginBottom: 20, fontSize: 32}}>Quiz conhecimentos gerais</Text>
-            <Text style={styles.textTitle}>Escolha uma categoria</Text>
-            <Text style={styles.textBody}>As perguntas serão referentes a uma das áreas</Text>
-            <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
-                    <Text style={styles.buttonText}>Natureza</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
-                    <Text style={styles.buttonText}>Exatas</Text>
-                </TouchableOpacity>
+                {/* Adjusted grid layout for buttons */}
+                <View style={styles.gridContainer}>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                        <Text style={styles.buttonText}>Entretenimento</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                        <Text style={styles.buttonText}>Esportes</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                        <Text style={styles.buttonText}>Ciência e Tecnologia</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                        <Text style={styles.buttonText}>Atualidades</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                        <Text style={styles.buttonText}>História</Text>
+                    </TouchableOpacity>
+                </View>
 
+                <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Início do Quiz" />
             </View>
-
-            <TouchableOpacity style={styles.buttonLong} onPress={() => { navigation.navigate('Questoes'); }}>
-                <Text style={styles.buttonText}>Humanas</Text>
-            </TouchableOpacity>
-
-            <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Início do Quiz" />
-
-        </View>
+        </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    buttonContainer: {
+    scrollViewContainer: {
+        flexGrow: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    gridContainer: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        flexWrap: 'wrap',
+        justifyContent: 'space-around',
         marginBottom: 20,
-        width: '70%',
     },
     button: {
-        flex: 1,
         paddingVertical: 10,
         paddingHorizontal: 20,
         backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
-        marginHorizontal: 10,
-    },
-    buttonLong: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
-        width: '70%', 
-        marginHorizontal: 10,
+        borderRadius: 10,
+        margin: 5,
+        minWidth: '45%', // Slightly increased to ensure alignment
+        textAlign: 'center',
+        alignItems: 'center', // Added for text alignment
+        justifyContent: 'center', // Added for text alignment
     },
     buttonText: {
         color: 'white',
-        textAlign: 'center',
-        fontSize: 18,
+        fontSize: 16,
         fontWeight: 'bold',
     },
     boxWelcome: {
-        alignItems: "center",
-        justifyContent: "center", 
+        alignItems: 'center',
         maxWidth: 500,
-        flex: 1,
-        marginTop: 100,
+        paddingVertical: 50, // Added padding to replace the StatusBar height
     },
-    textTitle:{
-        justifyContent: "center",
+    quizTitle: {
+        color: '#ffffff',
+        marginBottom: 20,
+        fontSize: 32,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    textTitle: {
+        color: '#ffffff',
+        fontSize: 24,
         marginBottom: 18,
-        color: "#fff",
-        fontSize: 24
     },
     textBody: {
-        justifyContent: "center",
-        color: "#8435de",
+        color: '#ffffff',
         marginBottom: 30,
-        fontSize: 16
+        fontSize: 16,
+        textAlign: 'center',
     },
-    buttonWelcome: {
-        
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
-        borderWidth: 0,
-        borderColor: 'transparent',
-        width: 100,
-        height: 48
-      },
-      buttonWelcome1: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
-        borderWidth: 0,
-        borderColor: 'transparent',
-        width: 200,
-        height: 48,
-      },
-      imageWelcome: {
+    imageWelcome: {
         maxWidth: '100%',
         resizeMode: 'contain',
-        paddingTop: 100
-      }
+        marginTop: 30,
+    },
 });
