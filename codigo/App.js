@@ -15,7 +15,7 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <View style={styles.container}>
-      <Login></Login>
+      <Router></Router>
     </View>
   );
 }

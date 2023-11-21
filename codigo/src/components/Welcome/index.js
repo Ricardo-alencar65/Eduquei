@@ -7,7 +7,7 @@ export default function Welcome( { navigation }){
         <View style={styles.boxWelcome}>
             <Text style={{color: "#ffffff", paddingTop: 100, marginBottom: 20, fontSize: 32}}>Quiz conhecimentos gerais</Text>
             <Text style={styles.textTitle}>Seja bem vindo</Text>
-            <Text style={styles.textBody}>Escolha uma categoria</Text>
+            <Text style={styles.textBody}>Pronto para aprender?</Text>
             <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('EscolhaAreaScreen'); }}>
                 <Text style={{ color: 'white', textAlign: 'center', fontSize: 18, fontWeight: 'bold',}}>Iniciar</Text>
             </TouchableOpacity>

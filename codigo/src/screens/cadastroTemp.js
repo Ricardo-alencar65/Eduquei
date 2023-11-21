@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth} from "../../src/services/firebaseConfig"
 
-export default function LoginScreen({ navigation }) {
+export default function CadastroTemp({ navigation }) {
     
 
         const [email, setEmail] = useState('');
@@ -12,23 +12,26 @@ export default function LoginScreen({ navigation }) {
 
         
         const handleLogin = () => {
-            signInWithEmailAndPassword(auth, email, password)
+            createUserWithEmailAndPassword (auth, email, password)
                 .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log("Logado");
-                    navigation.navigate('Welcome');
-                })
-                .catch((error) => {
-                    const errorMessage = error.message;
-                    console.log(errorMessage);
-                });
+                const user = userCredential.user;
+                console.log(user)
+                console.log("Cadastrado")
+                navigation.navigate('LoginScreen');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                
+                console.log(errorMessage)
+            });
         };
 
     
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Login</Text>
+            <Text style={styles.title}>Cadastro</Text>
 
             <TextInput 
                 style={styles.input} 
@@ -50,11 +53,11 @@ export default function LoginScreen({ navigation }) {
             />
 
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Entrar</Text>
+                <Text style={styles.buttonText}>Cadastrar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('CadastroTemp')}>
-                <Text style={styles.forgotPassword}>Cadastro</Text>
+            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+                <Text style={styles.forgotPassword}>Login</Text>
             </TouchableOpacity>
             <Image style={styles.logo} source={require('../../assets/quiz.png')} />
         </View>

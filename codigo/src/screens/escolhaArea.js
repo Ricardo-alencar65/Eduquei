@@ -2,7 +2,7 @@ import React from "react"
 import{ View, Text, TouchableOpacity, Image, StyleSheet, StatusBar} from "react-native"
 
 
-export default function EscolhaArea(navigation){
+export default function EscolhaArea({ navigation }){
     return(
         <View style={styles.boxWelcome}>
             <Text style={{color: "#ffffff", paddingTop: 100, marginBottom: 20, fontSize: 32}}>Quiz conhecimentos gerais</Text>
@@ -15,11 +15,13 @@ export default function EscolhaArea(navigation){
                 <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
                     <Text style={styles.buttonText}>Exatas</Text>
                 </TouchableOpacity>
+
             </View>
 
             <TouchableOpacity style={styles.buttonLong} onPress={() => { navigation.navigate('Questoes'); }}>
                 <Text style={styles.buttonText}>Humanas</Text>
             </TouchableOpacity>
+
             <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Início do Quiz" />
 
         </View>
