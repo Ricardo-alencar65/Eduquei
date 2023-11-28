@@ -31,6 +31,9 @@ export default function EscolhaArea({ navigation }) {
                         <Text style={styles.buttonText}>História</Text>
                     </TouchableOpacity>
                 </View>
+                <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Welcome'); }}>
+                    <Text style={styles.buttonTextWelcome}>Início</Text>
+                </TouchableOpacity>
 
                 <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Início do Quiz" />
             </View>
@@ -39,6 +42,22 @@ export default function EscolhaArea({ navigation }) {
 }
 
 const styles = StyleSheet.create({
+    buttonWelcome: {
+        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        marginVertical: 20,
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        width: '60%', 
+        alignSelf: 'center', 
+    },
+    buttonTextWelcome: {
+        color: 'rgba(132, 53, 222, 1)', 
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
     scrollViewContainer: {
         flexGrow: 1,
         justifyContent: 'center',
@@ -56,10 +75,10 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(132, 53, 222, 1)',
         borderRadius: 10,
         margin: 5,
-        minWidth: '45%', // Slightly increased to ensure alignment
+        minWidth: '45%', 
         textAlign: 'center',
-        alignItems: 'center', // Added for text alignment
-        justifyContent: 'center', // Added for text alignment
+        alignItems: 'center', 
+        justifyContent: 'center',
     },
     buttonText: {
         color: 'white',

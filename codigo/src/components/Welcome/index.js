@@ -21,6 +21,9 @@ export default function Welcome({ navigation }) {
             <TouchableOpacity style={styles.buttonLogout} onPress={handleLogout}>
                 <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
+            <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Desempenho'); }}>
+                <Text style={styles.buttonText}>Ver desempenho</Text>
+            </TouchableOpacity>
             <Image style={styles.imageWelcome} source={require('../../../assets/quiz.png')} alt="Início do Quiz" />
         </View>
     );
@@ -47,31 +50,31 @@ const styles = StyleSheet.create({
         fontSize: 16
     },
     buttonWelcome: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
-        borderWidth: 0,
-        borderColor: 'transparent',
-        width: 100,
-        height: 48,
-        marginBottom: 15, // Adicionado espaço entre os botões
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+        borderRadius: 20,
+        marginVertical: 10,
+        width: '60%', 
+        alignSelf: 'center', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
     },
     buttonText: {
-        color: 'white',
-        textAlign: 'center',
+        color: 'rgba(132, 53, 222, 1)', 
         fontSize: 18,
         fontWeight: 'bold',
     },
     buttonLogout: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(255, 0, 0, 1)', // Vermelho para o botão de logout
-        borderRadius: 50,
-        borderWidth: 0,
-        borderColor: 'transparent',
-        width: 100,
-        height: 48
+        paddingVertical: 12,
+        paddingHorizontal: 30,
+        backgroundColor: 'rgba(255, 59, 48, 0.8)', 
+        borderRadius: 20,
+        marginVertical: 10,
+        width: '60%', 
+        alignSelf: 'center', 
+        alignItems: 'center', 
+        justifyContent: 'center', 
     },
     imageWelcome: {
         maxWidth: '100%',

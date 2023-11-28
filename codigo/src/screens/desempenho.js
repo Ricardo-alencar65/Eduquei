@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export default function PerformanceScreen() {
+export default function PerformanceScreen({navigation}) {
     const [desempenhos, setDesempenhos] = useState({});
 
     useEffect(() => {
@@ -64,15 +64,18 @@ export default function PerformanceScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Desempenho</Text>
-      {Object.entries(desempenhos).map(([area, percentual], index) => (
-        <View key={index} style={styles.card}>
-          <Text style={styles.cardTitle}>{area}:</Text>
-          <Text style={styles.cardContent}>{percentual}</Text>
-        </View>
-      ))}
+        <Text style={styles.title}>Desempenho</Text>
+        {Object.entries(desempenhos).map(([area, percentual], index) => (
+            <View key={index} style={styles.card}>
+                <Text style={styles.cardTitle}>{area}:</Text>
+                <Text style={styles.cardContent}>{percentual}</Text>
+            </View>
+        ))}
+        <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Welcome'); }}>
+            <Text style={styles.buttonTextWelcome}>Início</Text>
+        </TouchableOpacity>
     </View>
-  );
+);
 }
 
 const styles = StyleSheet.create({
@@ -104,4 +107,21 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginTop: 5,
     },
+    buttonWelcome: {
+        backgroundColor: 'rgba(255, 255, 255, 0.8)',
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        marginVertical: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+        width: '60%',
+        alignSelf: 'center', 
+    },
+    buttonTextWelcome: {
+        color: 'rgba(132, 53, 222, 1)',
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
+
 });

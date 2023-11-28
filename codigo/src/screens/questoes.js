@@ -192,16 +192,36 @@ export default function Questoes({ route, navigation }) {
                     <Text style={styles.resultsButtonText}>Ver Desempenho</Text>
                 </TouchableOpacity>
             )}
+            <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('EscolhaAreaScreen'); }}>
+                <Text style={styles.buttonTextWelcome}>Escolher outra area</Text>
+            </TouchableOpacity>
+            
             <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Imagem da pergunta" />
         </View>
     );
 }
 
 const styles = StyleSheet.create({
+    buttonWelcome: {
+        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        borderRadius: 20,
+        marginVertical: 20,
+        alignItems: 'center', 
+        justifyContent: 'center', 
+        width: '60%', // Define uma largura para o botão
+        alignSelf: 'center', // Centraliza o botão no container
+    },
+    buttonTextWelcome: {
+        color: 'rgba(132, 53, 222, 1)', // Cor roxa para combinar com o tema
+        fontSize: 18,
+        fontWeight: 'bold',
+    },
     quizTitle: {
         color: "#ffffff",
-        paddingTop: 40, // Reduced padding
-        paddingBottom: 20, // Added some padding at the bottom
+        paddingTop: 40, 
+        paddingBottom: 20, 
         fontSize: 32,
         textAlign: 'center',
     },
@@ -209,14 +229,14 @@ const styles = StyleSheet.create({
         color: "#fff",
         fontSize: 24,
         textAlign: 'center',
-        marginBottom: 20, // Added margin to separate from the answers
+        marginBottom: 20, 
     },
     buttonLong: {
         paddingVertical: 10,
         paddingHorizontal: 20,
         backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 25, // Made the buttons a bit rounder
-        width: '80%', // Made buttons a bit wider
+        borderRadius: 25, 
+        width: '80%', 
         marginHorizontal: 10,
         textAlign: 'center',
         shadowColor: '#000',
@@ -234,7 +254,7 @@ const styles = StyleSheet.create({
     nextButton: {
         paddingVertical: 12,
         paddingHorizontal: 30,
-        backgroundColor: '#34eb40', // A more noticeable color for the next question button
+        backgroundColor: '#34eb40', 
         borderRadius: 25,
         width: '80%',
         marginVertical: 20,
@@ -248,7 +268,7 @@ const styles = StyleSheet.create({
     resultsButton: {
         paddingVertical: 12,
         paddingHorizontal: 30,
-        backgroundColor: '#eb4034', // A distinct color for the results button
+        backgroundColor: '#eb4034', 
         borderRadius: 25,
         width: '80%',
         marginVertical: 20,
@@ -267,6 +287,6 @@ const styles = StyleSheet.create({
     boxWelcome: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "flex-start", // Adjusted alignment to flex-start
+        justifyContent: "flex-start", 
     },
 });
