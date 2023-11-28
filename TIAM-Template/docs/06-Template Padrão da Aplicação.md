@@ -4,6 +4,16 @@
 
 Layout padrão da aplicação que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/6021e4c3-7cdc-4af9-ad81-0c14dcbd787e)
+|
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/a170384d-15eb-47e5-bdc6-84c065f03e0f)
+|
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/5b7f3f72-e6f9-4b75-9ccd-14ad3a3e9b57)
+|
+![image](https://github.com/Ricardo-alencar65/showDoPobrao/assets/102127366/7efa6bab-109e-4815-94b6-0facb75b3f14)
+
+
+
 > **Links Úteis**:
 >
 > - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
