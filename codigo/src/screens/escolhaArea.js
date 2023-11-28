@@ -2,6 +2,11 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
 
 export default function EscolhaArea({ navigation }) {
+    // Função para navegar para a tela de questões com o ID da área selecionada
+    const goToQuestionsForArea = (areaId) => {
+        navigation.navigate('Questoes', { areaId });
+    };
+
     return (
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
             <View style={styles.boxWelcome}>
@@ -9,21 +14,20 @@ export default function EscolhaArea({ navigation }) {
                 <Text style={styles.textTitle}>Escolha uma categoria</Text>
                 <Text style={styles.textBody}>As perguntas serão referentes a uma das áreas</Text>
 
-                {/* Adjusted grid layout for buttons */}
                 <View style={styles.gridContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('01')}>
                         <Text style={styles.buttonText}>Entretenimento</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('02')}>
                         <Text style={styles.buttonText}>Esportes</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('03')}>
                         <Text style={styles.buttonText}>Ciência e Tecnologia</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('04')}>
                         <Text style={styles.buttonText}>Atualidades</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Questoes'); }}>
+                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('05')}>
                         <Text style={styles.buttonText}>História</Text>
                     </TouchableOpacity>
                 </View>

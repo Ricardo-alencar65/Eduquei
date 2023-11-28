@@ -10,13 +10,15 @@ import Cadastro from './src/screens/cadastro';
 import Desempenho from './src/screens/desempenho'
 import Questao from './src/screens/questoes'
 import Questoes from './src/screens/questoes';
+import CadastroQuestoes from './src/screens/cadastrarQuest';
 
 const Stack = createStackNavigator();
+
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Questoes></Questoes>
+      <CadastroQuestoes></CadastroQuestoes>
     </View>
   );
 }

@@ -1,28 +1,37 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import {auth} from "../../src/services/firebaseConfig"
+import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen({ navigation }) {
-    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-        const [email, setEmail] = useState('');
-        const [password, setPassword] = useState('');
+    const handleLogin = async () => {
+        try {
+            const db = getFirestore();
+            const usuarioRef = collection(db, 'usuario');
+            const q = query(usuarioRef, where('email', '==', email), where('senha', '==', password));
+            const querySnapshot = await getDocs(q);
 
-        
-        const handleLogin = () => {
-            signInWithEmailAndPassword(auth, email, password)
-                .then((userCredential) => {
-                    const user = userCredential.user;
-                    console.log("Logado");
-                    navigation.navigate('Welcome');
-                })
-                .catch((error) => {
-                    const errorMessage = error.message;
-                    console.log(errorMessage);
-                });
-        };
+            if (querySnapshot.empty) {
+                console.log("E-mail ou senha incorretos");
+                // Aqui você pode retornar ou mostrar uma mensagem ao usuário
+                return;
+            }
+
+            querySnapshot.forEach(async (doc) => {
+                const userData = doc.data();
+                const userId = doc.id; // ID do documento do usuário
+                await AsyncStorage.setItem('userId', userId);
+                await AsyncStorage.setItem('userEmail', userData.email);
+                console.log("Logado com ID:", userId);
+                navigation.navigate('Welcome');
+            });
+        } catch (error) {
+            console.error('Erro ao fazer login: ', error);
+        }
+    };
 
     
 
@@ -53,7 +62,7 @@ export default function LoginScreen({ navigation }) {
                 <Text style={styles.buttonText}>Entrar</Text>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => navigation.navigate('CadastroTemp')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Cadastro')}>
                 <Text style={styles.forgotPassword}>Cadastro</Text>
             </TouchableOpacity>
             <Image style={styles.logo} source={require('../../assets/quiz.png')} />
@@ -73,7 +82,7 @@ const styles = StyleSheet.create({
         marginBottom: 30,
     },
     input: {
-        width: '80%',
+        width: 300,
         padding: 15,
         marginVertical: 10,
         backgroundColor: '#fff',
@@ -82,7 +91,7 @@ const styles = StyleSheet.create({
         color: '#000',
     },
     button: {
-        width: '80%',
+        width: 300,
         padding: 15,
         backgroundColor: 'rgba(132, 53, 222, 1)',
         borderRadius: 50,
