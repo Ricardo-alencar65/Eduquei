@@ -11,6 +11,7 @@ import Desempenho from './src/screens/desempenho'
 import Questao from './src/screens/questoes'
 import Questoes from './src/screens/questoes';
 import CadastroQuestoes from './src/screens/cadastrarQuest';
+import RankingScreen from './src/screens/ranking';
 
 const Stack = createStackNavigator();
 

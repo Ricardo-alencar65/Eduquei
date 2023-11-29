@@ -2,7 +2,6 @@ import React from "react";
 import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "react-native";
 
 export default function EscolhaArea({ navigation }) {
-    // Função para navegar para a tela de questões com o ID da área selecionada
     const goToQuestionsForArea = (areaId) => {
         navigation.navigate('Questoes', { areaId });
     };

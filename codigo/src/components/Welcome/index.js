@@ -18,11 +18,17 @@ export default function Welcome({ navigation }) {
             <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('EscolhaAreaScreen'); }}>
                 <Text style={styles.buttonText}>Iniciar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.buttonLogout} onPress={handleLogout}>
-                <Text style={styles.buttonText}>Logout</Text>
-            </TouchableOpacity>
+            
             <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Desempenho'); }}>
                 <Text style={styles.buttonText}>Ver desempenho</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Ranking'); }}>
+                <Text style={styles.buttonText}>Ranking de usuarios</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonLogout} onPress={handleLogout}>
+                <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
             <Image style={styles.imageWelcome} source={require('../../../assets/quiz.png')} alt="Início do Quiz" />
         </View>

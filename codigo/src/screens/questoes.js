@@ -30,9 +30,9 @@ export default function Questoes({ route, navigation }) {
             setUsuarioId(userId);
 
             const db = getFirestore();
-            const areaId = route.params?.areaId; // Pega o areaId passado pelos parâmetros da navegação
+            const areaId = route.params?.areaId; 
             const questoesRef = collection(db, "questoes");
-            const q = areaId ? query(questoesRef, where("areaId", "==", areaId)) : questoesRef; // Filtra as questões pela área se areaId estiver definido
+            const q = areaId ? query(questoesRef, where("areaId", "==", areaId)) : questoesRef; 
             const querySnapshot = await getDocs(q);
             const questoesArray = [];
 
@@ -72,7 +72,7 @@ export default function Questoes({ route, navigation }) {
     
         let docRef;
         if (querySnapshot.empty) {
-            // Documento não existe, criar um novo
+            
             docRef = doc(collection(db, 'desempenho'));
             const novoDesempenho = {
                 usuarioId,
@@ -83,11 +83,11 @@ export default function Questoes({ route, navigation }) {
             };
             await setDoc(docRef, novoDesempenho);
         } else {
-            // Documento existe, pegar sua referência
+            
             docRef = querySnapshot.docs[0].ref;
         }
     
-        // Atualizar as contagens com base na dificuldade da questão
+        
         const nivelDificuldade = dificuldade === 1 ? 'facil' : dificuldade === 2 ? 'medio' : 'dificil';
         const atualizacoes = { [`${nivelDificuldade}.total`]: increment(1) };
         if (acertou) {
@@ -106,7 +106,7 @@ export default function Questoes({ route, navigation }) {
         try {
             console.log("Indo para a próxima questão, índice atual:", currentQuestionIndex);
             
-            // Essa checagem deve ser feita antes de tentar acessar areaId da questão atual.
+            
             if (!usuarioId) {
                 console.error("O usuário não está logado.");
                 return;
@@ -114,22 +114,18 @@ export default function Questoes({ route, navigation }) {
             
             if (currentQuestionIndex < questoes.length - 1) {
                 const acertou = selectedAnswer === questoes[currentQuestionIndex].correct;
-                const areaId = questoes[currentQuestionIndex].areaId; // Utiliza o areaId diretamente da questão
+                const areaId = questoes[currentQuestionIndex].areaId; 
                 
-                // A checagem de typeof areaId === 'undefined' é desnecessária aqui,
-                // pois você já está garantindo que ele está definido ao carregar as questões.
+                
                 await atualizarDesempenhoDoUsuario(areaId, questoes[currentQuestionIndex].dificuldade, acertou);
     
-                // Atualiza o índice para a próxima questão
+                
                 setCurrentQuestionIndex(currentQuestionIndex + 1);
-                setSelectedAnswer(null); // Reseta a resposta selecionada
-                setShowResults(false); // Oculta os resultados
+                setSelectedAnswer(null); 
+                setShowResults(false); 
             } else {
-                // Se não houver mais questões, mostra os resultados
                 setShowResults(true);
             }
-            // Essa linha deve ser removida, pois você já resetou selectedAnswer acima.
-            // setSelectedAnswer(null); 
         } catch (error) {
             console.error("Erro ao atualizar desempenho:", error);
         }
@@ -210,11 +206,11 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         alignItems: 'center', 
         justifyContent: 'center', 
-        width: '60%', // Define uma largura para o botão
-        alignSelf: 'center', // Centraliza o botão no container
+        width: '60%',
+        alignSelf: 'center',
     },
     buttonTextWelcome: {
-        color: 'rgba(132, 53, 222, 1)', // Cor roxa para combinar com o tema
+        color: 'rgba(132, 53, 222, 1)',
         fontSize: 18,
         fontWeight: 'bold',
     },

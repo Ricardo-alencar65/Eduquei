@@ -8,7 +8,7 @@ export default function PerformanceScreen({navigation}) {
 
     useEffect(() => {
         const fetchDesempenho = async () => {
-          // Recupera a ID do usuário do AsyncStorage
+         
           const userId = await AsyncStorage.getItem('userId');
           console.log('ID do usuário (AsyncStorage):', userId);
       
@@ -26,8 +26,10 @@ export default function PerformanceScreen({navigation}) {
                 const acertos = data.facil.acertos + data.medio.acertos + data.dificil.acertos;
                 const total = data.facil.total + data.medio.total + data.dificil.total;
       
-                // Log do total de questões e acertos por área
-                console.log(`Área: ${areaName}, Questões respondidas: ${total}, Acertos: ${acertos}`);
+                
+                console.log(`Área: ${areaName}, Questões respondidas faceis: ${data.facil.total}, Acertos faceis: ${data.facil.acertos},  
+                Questões respondidas medio: ${data.medio.total}, Acertos faceis: ${data.medio.acertos},  
+                Questões respondidas dificil: ${data.dificil.total}, Acertos faceis: ${data.dificil.acertos}`);
       
                 desempenhoData[areaName] = calcularPorcentagem(data.facil.acertos, data.medio.acertos, data.dificil.acertos, data.facil.total, data.medio.total, data.dificil.total);
               });
@@ -45,12 +47,10 @@ export default function PerformanceScreen({navigation}) {
         fetchDesempenho();
       }, []);
 
-  // Função para calcular a porcentagem de desempenho
   const calcularPorcentagem = (acertosF, acertosM, acertosD, totalF, totalM, totalD) => {
     return (((acertosF * 5) + (acertosM * 3) + (acertosD * 1)) / ((totalF * 5) + (totalM * 3) + (totalD * 1)) * 100).toFixed(0) + '%';
   };
 
-  // Função para mapear o 'areaId' para o nome da área
   const mapearAreaIdParaNome = (areaId) => {
     const areas = {
       '01': 'Entretenimento',

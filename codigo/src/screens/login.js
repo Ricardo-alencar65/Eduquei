@@ -16,13 +16,13 @@ export default function LoginScreen({ navigation }) {
 
             if (querySnapshot.empty) {
                 console.log("E-mail ou senha incorretos");
-                // Aqui você pode retornar ou mostrar uma mensagem ao usuário
+                
                 return;
             }
 
             querySnapshot.forEach(async (doc) => {
                 const userData = doc.data();
-                const userId = doc.id; // ID do documento do usuário
+                const userId = doc.id; 
                 await AsyncStorage.setItem('userId', userId);
                 await AsyncStorage.setItem('userEmail', userData.email);
                 console.log("Logado com ID:", userId);

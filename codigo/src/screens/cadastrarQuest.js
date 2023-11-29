@@ -40,7 +40,6 @@ export default function CadastroQuestoes() {
         try {
             await addDoc(collection(db, 'questoes'), questao);
             alert('Questão cadastrada com sucesso!');
-            // Limpa os campos após o cadastro
             setPergunta('');
             setAlternativa1('');
             setAlternativa2('');
@@ -70,7 +69,7 @@ export default function CadastroQuestoes() {
                 placeholder="Dificuldade" 
                 value={dificuldade} 
                 onChangeText={text => setDificuldade(text)}
-                keyboardType="numeric"  // Mudança aqui para aceitar apenas números
+                keyboardType="numeric"
             />
             <Picker
                 selectedValue={areaSelecionada}

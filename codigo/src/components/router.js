@@ -10,19 +10,20 @@ import Login from '../screens/login';
 import CadastroTemp from '../screens/cadastroTemp';
 import Desempenho from '../screens/desempenho';
 import Cadastro from '../screens/cadastro';
+import Ranking from '../screens/ranking';
 
 const Stack = createStackNavigator();
 
 function Router() {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(null);
-  const [loading, setLoading] = useState(true); // Novo estado para carregamento
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const checkLoginStatus = async () => {
       const userEmail = await AsyncStorage.getItem('userEmail');
-      console.log("Email recuperado do AsyncStorage:", userEmail); // Para depuração
+      console.log("Email recuperado do AsyncStorage:", userEmail);
       setIsUserLoggedIn(!!userEmail);
-      setLoading(false); // Finaliza o carregamento após a verificação
+      setLoading(false);
     };
 
     checkLoginStatus();
@@ -54,6 +55,7 @@ function Router() {
         <Stack.Screen name="CadastroTemp" component={CadastroTemp} options={{ headerShown: false }} />
         <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} />
         <Stack.Screen name="Desempenho" component={Desempenho} options={{ headerShown: false }} />
+        <Stack.Screen name="Ranking" component={Ranking} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
