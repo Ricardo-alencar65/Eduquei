@@ -34,57 +34,70 @@ export default function Welcome({ navigation }) {
         </View>
     );
 }
-
 const styles = StyleSheet.create({
     boxWelcome: {
+        flex: 1,
         alignItems: "center",
         justifyContent: "center",
-        maxWidth: 500,
-        flex: 1,
-        marginTop: 100,
+        backgroundColor: "#1c1c1c", // Mantendo o fundo escuro
+        paddingTop: StatusBar.currentHeight || 0,
+        backgroundImage: 'linear-gradient(180deg, #1c1c1c 0%, #42275a 100%)', // Degrade sutil
     },
     textTitle: {
-        justifyContent: "center",
-        marginBottom: 28,
-        color: "#fff",
-        fontSize: 24
+        color: "#ffffff",
+        fontSize: 32,
+        fontWeight: 'bold',
+        marginBottom: 20,
+        textShadowColor: 'rgba(0, 0, 0, 0.7)',
+        textShadowOffset: { width: 1, height: 1 },
+        textShadowRadius: 10
     },
     textBody: {
-        justifyContent: "center",
-        color: "#8435de",
-        marginBottom: 20,
-        fontSize: 16
+        color: "#ffffff",
+        fontSize: 20,
+        marginBottom: 30,
     },
     buttonWelcome: {
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-        borderRadius: 20,
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        backgroundColor: '#8453DE', // Cor roxa padrão
+        borderRadius: 30,
         marginVertical: 10,
-        width: '60%', 
-        alignSelf: 'center', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
+        width: '70%',
+        shadowColor: "#8453DE",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     buttonText: {
-        color: 'rgba(132, 53, 222, 1)', 
-        fontSize: 18,
+        color: '#ffffff',
+        fontSize: 20,
         fontWeight: 'bold',
     },
     buttonLogout: {
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        backgroundColor: 'rgba(255, 59, 48, 0.8)', 
-        borderRadius: 20,
-        marginVertical: 10,
-        width: '60%', 
-        alignSelf: 'center', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        backgroundColor: '#FF3B30', // Botão de logout
+        borderRadius: 30,
+        marginVertical: 15,
+        width: '70%',
+        shadowColor: "#FF3B30",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     imageWelcome: {
-        maxWidth: '100%',
+        width: 250,
+        height: 300,
         resizeMode: 'contain',
-        paddingTop: 100
+        marginTop: 40,
     }
 });

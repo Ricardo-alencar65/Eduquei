@@ -41,75 +41,92 @@ export default function EscolhaArea({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-    buttonWelcome: {
-        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        marginVertical: 20,
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        width: '60%', 
-        alignSelf: 'center', 
-    },
-    buttonTextWelcome: {
-        color: 'rgba(132, 53, 222, 1)', 
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
     scrollViewContainer: {
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#1c1c1c', // Mantendo o fundo consistente com a tela anterior
     },
     gridContainer: {
         flexDirection: 'row',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
+        alignItems: 'center',
         marginBottom: 20,
     },
     button: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 10,
-        margin: 5,
-        minWidth: '45%', 
-        textAlign: 'center',
-        alignItems: 'center', 
-        justifyContent: 'center',
+        paddingVertical: 15,
+        paddingHorizontal: 25,
+        backgroundColor: '#8453DE', // Cor roxa padrão, como na tela anterior
+        borderRadius: 25,
+        margin: 10,
+        minWidth: '45%',
+        shadowColor: "#8453DE",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     buttonText: {
         color: 'white',
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
+        textAlign: 'center',
     },
     boxWelcome: {
         alignItems: 'center',
         maxWidth: 500,
-        paddingVertical: 50, // Added padding to replace the StatusBar height
+        paddingVertical: 50,
     },
     quizTitle: {
         color: '#ffffff',
-        marginBottom: 20,
         fontSize: 32,
         fontWeight: 'bold',
+        marginBottom: 20,
         textAlign: 'center',
     },
     textTitle: {
         color: '#ffffff',
         fontSize: 24,
         marginBottom: 18,
+        textAlign: 'center',
     },
     textBody: {
         color: '#ffffff',
+        fontSize: 20,
         marginBottom: 30,
-        fontSize: 16,
+        textAlign: 'center',
+    },
+    buttonWelcome: {
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        backgroundColor: '#FF3B30', // Botão de retorno
+        borderRadius: 20,
+        marginVertical: 20,
+        width: '60%',
+        alignSelf: 'center',
+        shadowColor: "#FF3B30",
+        shadowOffset: {
+            width: 0,
+            height: 4,
+        },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
+    },
+    buttonTextWelcome: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
         textAlign: 'center',
     },
     imageWelcome: {
-        maxWidth: '100%',
+        width: 300,
+        height: 200,
         resizeMode: 'contain',
-        marginTop: 30,
+        marginTop: 40,
     },
 });

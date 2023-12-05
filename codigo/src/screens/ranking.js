@@ -74,58 +74,58 @@ export default function RankingScreen({ navigation }) {
     };
 
     return (
-        <ScrollView contentContainerStyle={styles.scrollViewContent}>
+        <View style={styles.container}>
             <Text style={styles.title}>Ranking de Usuários</Text>
+
+            <ScrollView style={styles.scrollView}>
                 {rankings.map((usuario, index) => (
-                <View key={index} style={styles.usuarioContainer}>
-                    <View style={styles.infoContainer}>
-                        <Text style={styles.nomeCompleto}>{usuario.nomeCompleto}</Text>
-                        <Text style={styles.totalQuestoes}>Questões Feitas: {usuario.totalQuestoes}</Text>
+                    <View key={index} style={styles.usuarioContainer}>
+                        <View style={styles.infoContainer}>
+                            <Text style={styles.nomeCompleto}>{usuario.nomeCompleto}</Text>
+                            <Text style={styles.totalQuestoes}>Questões Feitas: {usuario.totalQuestoes}</Text>
+                        </View>
+                        <Text style={styles.desempenho}>{usuario.desempenho.toFixed(0)}%</Text>
                     </View>
-                    <Text style={styles.desempenho}>{usuario.desempenho.toFixed(0)}%</Text>
-                    
-                </View>
-                
-            ))}
-            <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Welcome'); }}>
+                ))}
+            </ScrollView>
+
+            <TouchableOpacity style={styles.buttonWelcome} onPress={() => navigation.navigate('Welcome')}>
                 <Text style={styles.buttonTextWelcome}>Início</Text>
             </TouchableOpacity>
-        </ScrollView>
+        </View>
     );
 }
 
 const styles = StyleSheet.create({
     buttonWelcome: {
         backgroundColor: 'rgba(255, 255, 255, 0.8)',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        marginVertical: 20,
+        paddingVertical: 15,
+        paddingHorizontal: 25,
+        borderRadius: 25,
+        marginVertical: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        width: '60%',
+        width: '70%',
         alignSelf: 'center', 
     },
     buttonTextWelcome: {
         color: 'rgba(132, 53, 222, 1)',
-        fontSize: 18,
+        fontSize: 20,
         fontWeight: 'bold',
-    },
-    scrollViewContent: {
-        alignItems: 'center',
-        justifyContent: 'center', 
-        padding: 20,
     },
     container: {
         flex: 1,
         alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: '#342E37', 
+        justifyContent: 'flex-start', // Ajuste para alinhar ao topo
+        backgroundColor: '#342E37',
+    },
+    scrollView: {
+        width: '100%', // Ajuste para ocupar a largura total
     },
     title: {
-        fontSize: 32,
+        fontSize: 35,
         color: '#F7F7FF',
-        marginBottom: 30,
+        marginBottom: 35,
         fontWeight: 'bold',
         textAlign: 'center',
     },
@@ -134,34 +134,37 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: 'rgba(132, 53, 222, 0.8)',
-        borderRadius: 10, 
-        padding: 15,
-        marginVertical: 8,
-        width: '90%', 
+        borderRadius: 15, 
+        padding: 20,
+        marginVertical: 10,
+        width: '95%', 
         shadowColor: '#000', 
         shadowOffset: { width: 0, height: 3 },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
-        elevation: 6,
+        shadowOpacity: 0.5,
+        shadowRadius: 10,
+        elevation: 10,
     },
-    infoContainer: {
-        flexDirection: 'column',
-        justifyContent: 'center',
-    },
-    nomeCompleto: {
-        fontSize: 20,
-        color: '#F7F7FF',
-        fontWeight: 'bold',
-    },
-    totalQuestoes: {
-        fontSize: 16,
-        color: '#CFCFCF',
-        marginTop: 4,
-    },
-    desempenho: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: '#76E880', 
-    },
-});
-
+        infoContainer: {
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: 10,
+        },
+        nomeCompleto: {
+            fontSize: 24,
+            color: '#FFFFFF',
+            fontWeight: 'bold',
+            textShadowColor: 'rgba(0, 0, 0, 0.75)',
+            textShadowOffset: {width: -1, height: 1},
+            textShadowRadius: 10
+        },
+        totalQuestoes: {
+            fontSize: 20,
+            color: '#A9A9A9',
+            marginTop: 10,
+        },
+        desempenho: {
+            fontSize: 24,
+            fontWeight: 'bold',
+            color: '#32CD32',
+        },
+    })

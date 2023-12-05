@@ -131,14 +131,29 @@ export default function Questoes({ route, navigation }) {
         }
     };
     const buttonStyle = (answer) => {
-        let style = {
+        const isCorrectAnswer = answer === currentQuestion.correct;
+        const isSelectedAnswer = answer === selectedAnswer;
+        let backgroundColor;
+    
+        if (selectedAnswer) {
+            if (isSelectedAnswer && isCorrectAnswer) {
+                backgroundColor = 'green'; // Resposta correta
+            } else if (isSelectedAnswer && !isCorrectAnswer) {
+                backgroundColor = 'red'; // Resposta errada
+            } else if (!isSelectedAnswer && isCorrectAnswer) {
+                backgroundColor = 'green'; // Mostrar a resposta correta
+            } else {
+                backgroundColor = '#8453DE'; // Cor padrão para as outras opções
+            }
+        } else {
+            backgroundColor = '#8453DE'; // Cor padrão antes de selecionar uma resposta
+        }
+    
+        return {
             ...styles.buttonLong,
+            backgroundColor,
             marginTop: answer === currentQuestion?.options[0] ? 20 : 10,
         };
-        if (selectedAnswer === answer) {
-            style.backgroundColor = answer === currentQuestion.correct ? 'green' : 'red';
-        }
-        return style;
     };
 
     const mapearCategoriaParaAreaId = (categoria) => {
@@ -161,15 +176,15 @@ export default function Questoes({ route, navigation }) {
                 <>
                     <Text style={styles.questionTitle}>{currentQuestion.question}</Text>
                     {currentQuestion.options.map((answer, index) => (
-                        <TouchableOpacity
-                            key={index}
-                            style={buttonStyle(answer)}
-                            onPress={() => handlePress(answer)}
-                            disabled={selectedAnswer !== null}
-                        >
-                            <Text style={styles.buttonText}>{answer}</Text>
-                        </TouchableOpacity>
-                    ))}
+    <TouchableOpacity
+        key={index}
+        style={buttonStyle(answer)}
+        onPress={() => handlePress(answer)}
+        disabled={selectedAnswer !== null}
+    >
+        <Text style={styles.buttonText}>{answer}</Text>
+    </TouchableOpacity>
+))}
                 </>
             )}
             {selectedAnswer && !showResults && (
@@ -198,48 +213,40 @@ export default function Questoes({ route, navigation }) {
 }
 
 const styles = StyleSheet.create({
-    buttonWelcome: {
-        backgroundColor: 'rgba(255, 255, 255, 0.8)', 
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        marginVertical: 20,
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        width: '60%',
-        alignSelf: 'center',
-    },
-    buttonTextWelcome: {
-        color: 'rgba(132, 53, 222, 1)',
-        fontSize: 18,
-        fontWeight: 'bold',
+    boxWelcome: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "flex-start",
+        backgroundColor: "#1c1c1c", // Fundo escuro
     },
     quizTitle: {
         color: "#ffffff",
-        paddingTop: 40, 
-        paddingBottom: 20, 
+        paddingTop: 40,
+        paddingBottom: 20,
         fontSize: 32,
         textAlign: 'center',
+        fontWeight: 'bold',
     },
     questionTitle: {
-        color: "#fff",
+        color: "#ffffff",
         fontSize: 24,
         textAlign: 'center',
-        marginBottom: 20, 
+        marginBottom: 20,
+        fontWeight: '500',
     },
     buttonLong: {
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 25, 
-        width: '80%', 
-        marginHorizontal: 10,
+        paddingVertical: 12,
+        paddingHorizontal: 25,
+        backgroundColor: '#8453DE',
+        borderRadius: 25,
+        width: '80%',
+        marginVertical: 10,
         textAlign: 'center',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.25,
-        shadowRadius: 3.84,
-        elevation: 5,
+        shadowColor: '#8453DE',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     buttonText: {
         color: 'white',
@@ -248,12 +255,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     nextButton: {
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        backgroundColor: '#34eb40', 
+        paddingVertical: 15,
+        paddingHorizontal: 35,
+        backgroundColor: '#34eb40',
         borderRadius: 25,
         width: '80%',
         marginVertical: 20,
+        shadowColor: '#34eb40',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     nextButtonText: {
         color: 'white',
@@ -262,12 +274,17 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     resultsButton: {
-        paddingVertical: 12,
-        paddingHorizontal: 30,
-        backgroundColor: '#eb4034', 
+        paddingVertical: 15,
+        paddingHorizontal: 35,
+        backgroundColor: '#eb4034',
         borderRadius: 25,
         width: '80%',
         marginVertical: 20,
+        shadowColor: '#eb4034',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
     },
     resultsButtonText: {
         color: 'white',
@@ -276,13 +293,29 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     imageWelcome: {
-        maxWidth: '90%',
+        width: 250,
+        height: 130,
         resizeMode: 'contain',
-        paddingTop: 50,
+        marginTop: 10,
     },
-    boxWelcome: {
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "flex-start", 
+    buttonWelcome: {
+        backgroundColor: '#FF3B30',
+        paddingVertical: 15,
+        paddingHorizontal: 30,
+        borderRadius: 25,
+        marginVertical: 20,
+        width: '60%',
+        alignSelf: 'center',
+        shadowColor: '#FF3B30',
+        shadowOffset: { width: 0, height: 4 },
+        shadowOpacity: 0.3,
+        shadowRadius: 5,
+        elevation: 6,
+    },
+    buttonTextWelcome: {
+        color: 'white',
+        fontSize: 18,
+        fontWeight: 'bold',
+        textAlign: 'center',
     },
 });

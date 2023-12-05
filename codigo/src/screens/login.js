@@ -5,7 +5,9 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function LoginScreen({ navigation }) {
     const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [password, setSenha] = useState('');
+    const [erroLogin, setErroLogin] = useState(false);
+
 
     const handleLogin = async () => {
         try {
@@ -15,11 +17,11 @@ export default function LoginScreen({ navigation }) {
             const querySnapshot = await getDocs(q);
 
             if (querySnapshot.empty) {
-                console.log("E-mail ou senha incorretos");
-                
+                setErroLogin(true);
+                setEmail(''); // Resetar o email
+                setSenha(''); // Resetar a senha
                 return;
             }
-
             querySnapshot.forEach(async (doc) => {
                 const userData = doc.data();
                 const userId = doc.id; 
@@ -40,23 +42,28 @@ export default function LoginScreen({ navigation }) {
             <Text style={styles.title}>Login</Text>
 
             <TextInput 
-                style={styles.input} 
+                style={erroLogin ? styles.inputError : styles.input} 
                 placeholder="Email" 
-                placeholderTextColor="#aaa" 
+                placeholderTextColor="#aaa"
                 keyboardType="email-address"
+                value={email}
                 onChangeText={(val) => {
-                    setEmail(val)
+                    setEmail(val);
+                    setErroLogin(false);
                 }}
             />
             <TextInput 
-                style={styles.input} 
+                style={erroLogin ? styles.inputError : styles.input} 
                 placeholder="Senha" 
-                placeholderTextColor="#aaa" 
+                placeholderTextColor="#aaa"
                 secureTextEntry={true}
+                value={password}
                 onChangeText={(val) => {
-                    setPassword(val)
+                    setSenha(val);
+                    setErroLogin(false);
                 }}
             />
+            {erroLogin && <Text style={styles.errorMessage}>E-mail ou senha incorretos</Text>}
 
             <TouchableOpacity style={styles.button} onPress={handleLogin}>
                 <Text style={styles.buttonText}>Entrar</Text>
@@ -75,13 +82,10 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: "#1c1c1c", // Mantém o fundo escuro
     },
-    title: {
-        fontSize: 32,
-        color: '#fff',
-        marginBottom: 30,
-    },
-    input: {
+    inputError: {
+        // Estilo para campos quando há erro
         width: 300,
         padding: 15,
         marginVertical: 10,
@@ -89,27 +93,55 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         fontSize: 16,
         color: '#000',
+        borderColor: 'red',
+        borderWidth: 2, // Aumento da largura da borda
+    },
+    errorMessage: {
+        color: 'red',
+        marginBottom: 15,
+    },
+    title: {
+        fontSize: 36, // Tamanho maior para destaque
+        color: '#fff',
+        marginBottom: 40, // Aumenta o espaço abaixo do título
+        fontWeight: 'bold', // Deixa o título mais destacado
+    },
+    input: {
+        width: 300,
+        padding: 15,
+        marginVertical: 15, // Aumenta o espaçamento vertical
+        backgroundColor: '#fff',
+        borderRadius: 25, // Cantos mais arredondados
+        fontSize: 16,
+        color: '#000',
     },
     button: {
         width: 300,
         padding: 15,
-        backgroundColor: 'rgba(132, 53, 222, 1)',
-        borderRadius: 50,
+        backgroundColor: '#8453DE', // Cor vibrante
+        borderRadius: 25, // Cantos mais arredondados
         alignItems: 'center',
-        marginTop: 20,
+        marginTop: 25, // Aumenta o espaçamento acima do botão
+        shadowColor: '#000', // Sombra para o botão (opcional)
+        shadowOffset: {width: 0, height: 2},
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     },
     buttonText: {
         color: '#fff',
         fontSize: 18,
+        fontWeight: 'bold', // Texto do botão mais ousado
     },
     forgotPassword: {
         color: '#fff',
-        marginTop: 15,
+        marginTop: 20, // Aumenta o espaço acima do texto
+        textDecorationLine: 'underline', // Sublinha o texto (opcional)
     },
     logo: {
-        width: 150,
-        height: 150,
+        width: 300, // Aumenta a largura
+        height: 200, // Aumenta a altura
         resizeMode: 'contain',
-        marginTop: 30,
+        marginTop: 30, // Ajusta o espaço acima da logo se necessário
     },
 });
