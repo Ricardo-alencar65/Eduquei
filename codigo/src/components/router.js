@@ -11,6 +11,9 @@ import CadastroTemp from '../screens/cadastroTemp';
 import Desempenho from '../screens/desempenho';
 import Cadastro from '../screens/cadastro';
 import Ranking from '../screens/ranking';
+import LoginNovo from '../screens/loginNovo';
+import CadstroNovo from '../screens/cadastroNovo';
+import TelaQuestao from '../screens/telaQuestao';
 
 const Stack = createStackNavigator();
 
@@ -42,7 +45,7 @@ function Router() {
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName={isUserLoggedIn ? "Welcome" : "LoginScreen"}
+        initialRouteName={isUserLoggedIn ? "Welcome" : "LoginNovo"}
         screenOptions={{
           headerShown: false,
           cardStyle: styles.container,
@@ -56,6 +59,9 @@ function Router() {
         <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} />
         <Stack.Screen name="Desempenho" component={Desempenho} options={{ headerShown: false }} />
         <Stack.Screen name="Ranking" component={Ranking} options={{ headerShown: false }} />
+        <Stack.Screen name="LoginNovo" component={LoginNovo} options={{ headerShown: false }} />
+        <Stack.Screen name="CadstroNovo" component={CadstroNovo} options={{ headerShown: false }} />
+        <Stack.Screen name="TelaQuestao" component={TelaQuestao} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

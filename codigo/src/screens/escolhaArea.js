@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image, StyleSheet, ScrollView } from "rea
 
 export default function EscolhaArea({ navigation }) {
     const goToQuestionsForArea = (areaId) => {
-        navigation.navigate('Questoes', { areaId });
+        navigation.navigate('TelaQuestao', { areaId });
     };
 
     return (

@@ -12,14 +12,19 @@ import Questao from './src/screens/questoes'
 import Questoes from './src/screens/questoes';
 import CadastroQuestoes from './src/screens/cadastrarQuest';
 import RankingScreen from './src/screens/ranking';
-
+import TelaQuestao from './src/screens/telaQuestao';
+import LoginNovo from './src/screens/loginNovo';
+import CadstroNovo from './src/screens/cadastroNovo';
+import RankingNovo from './src/screens/rankingNovo';
+import RankingJuncao from './src/screens/rankingJunção';
+import TelaQuestaot from './src/screens/telaquestaot';
 const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Router></Router>
+      <RankingJuncao></RankingJuncao>
     </View>
   );
 }

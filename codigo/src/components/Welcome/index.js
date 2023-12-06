@@ -7,7 +7,7 @@ export default function Welcome({ navigation }) {
     const handleLogout = async () => {
         await AsyncStorage.removeItem('userEmail');
         await AsyncStorage.removeItem('userId');
-        navigation.navigate('LoginScreen');
+        navigation.navigate('LoginNovo');
     };
 
     return (
@@ -30,7 +30,6 @@ export default function Welcome({ navigation }) {
             <TouchableOpacity style={styles.buttonLogout} onPress={handleLogout}>
                 <Text style={styles.buttonText}>Logout</Text>
             </TouchableOpacity>
-            <Image style={styles.imageWelcome} source={require('../../../assets/quiz.png')} alt="Início do Quiz" />
         </View>
     );
 }
