@@ -5,27 +5,19 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import EscolhaArea from './src/screens/escolhaArea';
 import Router from './src/components/router';
-import Login from './src/screens/login' 
-import Cadastro from './src/screens/cadastro';
 import Desempenho from './src/screens/desempenho'
-import Questao from './src/screens/questoes'
-import Questoes from './src/screens/questoes';
 import CadastroQuestoes from './src/screens/cadastrarQuest';
-import RankingScreen from './src/screens/ranking';
 import TelaQuestao from './src/screens/telaQuestao';
 import LoginNovo from './src/screens/loginNovo';
 import CadstroNovo from './src/screens/cadastroNovo';
 import RankingNovo from './src/screens/rankingNovo';
-import RankingJuncao from './src/screens/rankingJunção';
-import TelaQuestaot from './src/screens/telaquestaot';
-import CadastroTemp from './src/screens/cadastroTemp';
 const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Router></Router>
+      <CadastroQuestoes></CadastroQuestoes>
     </View>
   );
 }

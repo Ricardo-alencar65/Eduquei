@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { app } from '../services/firebaseConfig';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, ImageBackground } from 'react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 export default function CadstroNovo({ navigation }) {
-    // Lógica de cadastro
     const [nome, setNome] = useState('');
     const [sobrenome, setSobrenome] = useState('');
     const [email, setEmail] = useState('');
@@ -21,8 +22,8 @@ export default function CadstroNovo({ navigation }) {
             });
             console.log('Usuário cadastrado com sucesso!');
             await AsyncStorage.setItem('userName', nome);
-navigation.navigate('WelcomeScreen');
-            navigation.navigate('LoginScreen');
+navigation.navigate('LoginNovo');
+            navigation.navigate('LoginNovo');
         } catch (error) {
             console.error('Erro ao cadastrar usuário: ', error);
         }
@@ -72,8 +73,8 @@ navigation.navigate('WelcomeScreen');
             <TouchableOpacity style={styles.overlap2} onPress={cadastrarUsuario}>
                 <Text style={styles.textWrapper4}>Cadastrar</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={{ top: 130, }} onPress={() => navigation.navigate('LoginNovo')}>
-                <Text style={{fontSize: 20}}>Login</Text>
+            <TouchableOpacity style={styles.loginButton} onPress={() => navigation.navigate('LoginNovo')}>
+                <Text style={styles.loginButtonText}>Login</Text>
             </TouchableOpacity>
         </View>
     </View>
@@ -90,17 +91,13 @@ const styles = StyleSheet.create({
     overlapGroupWrapper: {
       height: 932,
       width: 430,
-      justifyContent: 'space-between', // Isso irá distribuir o espaço igualmente
-    flex: 1,
-    },
-    overlapGroup: {
+  },
+  overlapGroup: {
       backgroundColor: '#004643b2',
       height: 932,
+      width: 430,
       position: 'relative',
-      flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    },
+  },
     overlap: {
       backgroundColor: '#ffffff',
       borderRadius: 80,
@@ -153,9 +150,10 @@ const styles = StyleSheet.create({
       top: 15,
     },
     inputsContainer: {
-        // Estilos para o container dos campos de entrada
-        width: '80%', // ou outro valor conforme necessário
-        alignItems: 'center', // Centraliza os filhos horizontalmente
+      top: 265,
+      left: 50,
+        width: '80%',
+        alignItems: 'center',
     },
     input: {
         width: 300,
@@ -184,22 +182,31 @@ const styles = StyleSheet.create({
         marginBottom: 15,
         alignSelf: 'center',
       },
-    overlap2: {
-      backgroundColor: '#f8c660',
-      borderRadius: 20,
-      height: 59,
-      left: 23,
-      position: 'absolute',
-      top: 622,
-      width: 383,
+      overlap2: {
+        backgroundColor: '#f8c660',
+        borderRadius: 20,
+        height: 59,
+        left: 23,
+        position: 'absolute',
+        top: 622,
+        width: 383,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     textWrapper4: {
-      color: '#ffffff',
-      fontSize: 24,
-      fontWeight: '600',
-      left: 164,
-      position: 'absolute',
-      top: 10,
+        color: '#ffffff',
+        fontSize: 24,
+        fontWeight: '600',
+        textAlign: 'center',
     },
+    loginButton: {
+      position: 'absolute',
+      top: 700,
+      left: 185,
+  },
+  loginButtonText: {
+    fontSize: 20,
+    color: '#f8c660', 
+}
   });
   

@@ -115,20 +115,20 @@ const styles = StyleSheet.create({
     },
     backButton: {
         position: 'absolute',
-        top: 40, // Ajustado para posicionar um pouco mais abaixo
+        top: 40,
         left: 20,
-        flexDirection: 'row', // Alinhamento horizontal do ícone e do texto
-        alignItems: 'center', // Centraliza verticalmente os itens dentro do botão
+        flexDirection: 'row',
+        alignItems: 'center', 
     },
     backIcon: {
-        width: 30, // Aumentado o tamanho do ícone
-        height: 30, // Aumentado o tamanho do ícone
-        tintColor: '#ffffff', // Cor branca para o ícone
+        width: 30, 
+        height: 30, 
+        tintColor: '#ffffff',
     },
     backButtonText: {
-        color: '#ffffff', // Cor branca para o texto
-        marginLeft: 10, // Espaçamento entre o ícone e o texto
-        fontSize: 16, // Tamanho da fonte do texto
+        color: '#ffffff',
+        marginLeft: 10,
+        fontSize: 16,
     },
     buttonTextPrevious: {
         color: 'white',

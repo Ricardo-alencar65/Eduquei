@@ -65,24 +65,25 @@ const styles = StyleSheet.create({
     boxWelcome: {
         flex: 1,
         alignItems: "center",
-        justifyContent: "flex-start", // Changed from "center" to "flex-start" to move content upwards
+        justifyContent: "flex-start",
         backgroundColor: "#004643b2",
         paddingTop: StatusBar.currentHeight || 0,
-        paddingHorizontal: 0, // Ensure there's no horizontal padding
-        margin: 0, // Ensure there's no margin
+        paddingHorizontal: 0, 
+        margin: 0, 
+        minWidth: '100%'
     },
     textWelcome: {
         color: "#ffffff",
         fontSize: 28,
         fontWeight: 'bold',
-        marginTop: 120, // Reduced space above the text
-        marginBottom: 5, // Reduced space below the text
+        marginTop: 120,
+        marginBottom: 5, 
         textAlign: 'center',
     },
     textDescription: {
         color: "#ffffff",
         fontSize: 20,
-        marginBottom: 20, // Adjust as needed
+        marginBottom: 20, 
         textAlign: 'center',
     },
     textBody: {
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     buttonWelcome: {
         paddingVertical: 18,
         paddingHorizontal: 45,
-        backgroundColor: '#f8c660', // Consider changing to a brighter color
+        backgroundColor: '#f8c660', 
         borderRadius: 30,
         marginVertical: 12,
         width: '80%',
@@ -116,23 +117,23 @@ const styles = StyleSheet.create({
     },
     buttonLogout: {
         position: 'absolute',
-        top: 40, // Posicionamento
+        top: 40, 
         left: 0,
-        flexDirection: 'row', // Ícone e texto na mesma linha
+        flexDirection: 'row', 
         alignItems: 'center',
         paddingVertical: 10,
         paddingHorizontal: 20,
     },
     buttonTextLogout: {
-        color: '#ffffff', // Cor do texto
-        fontSize: 16, // Tamanho da fonte
+        color: '#ffffff',
+        fontSize: 16, 
         fontWeight: 'bold',
-        marginLeft: 10, // Espaçamento entre o ícone e o texto
+        marginLeft: 10, 
     },
     backIcon: {
-        width: 30, // Tamanho do ícone
-        height: 30, // Tamanho do ícone
-        tintColor: '#ffffff', // Cor do ícone
+        width: 30, 
+        height: 30, 
+        tintColor: '#ffffff', 
     },
 });
 

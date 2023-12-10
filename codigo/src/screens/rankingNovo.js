@@ -118,8 +118,8 @@ export default function RankingNovo({ navigation }) {
                                 </React.Fragment>
                             );
                         } else {
-                            // Ajustes para os rankings a partir do 4º lugar
-                            const topPositionRectangle = 400 + (index - 3) * (64 + 30); // Posicionamento do retângulo
+                            
+                            const topPositionRectangle = 400 + (index - 3) * (64 + 30);
 
                             return (
                               <View key={ranking.usuarioId} style={{...styles.rectangleStyle, top: topPositionRectangle}}>
@@ -149,12 +149,12 @@ export default function RankingNovo({ navigation }) {
     },
     imgCoroa: {
       position: 'absolute',
-      width: 26, // Largura da coroa
-      height: 20.795, // Altura da coroa
-      top: 107 - (20.795 / 2) - 15,// Posiciona acima do círculo do primeiro lugar
-      left: 167 + (96 / 2) - (26 / 2), // Centraliza em relação ao círculo
-      zIndex: 1, // Garante que a coroa fique acima do círculo
-      flexShrink: 0, // Impede o redimensionamento automático da imagem
+      width: 26, 
+      height: 20.795, 
+      top: 107 - (20.795 / 2) - 15,
+      left: 167 + (96 / 2) - (26 / 2),
+      zIndex: 1,
+      flexShrink: 0,
   },
         leaderboardScreen: {
           backgroundColor: 'transparent',
@@ -176,12 +176,10 @@ export default function RankingNovo({ navigation }) {
         color: '#000',
         fontSize:17,
         fontWeight: 'bold',
-        top: 21, // Ajuste a posição conforme necessário
-        left: 20, // Ajuste a posição conforme necessário
-        // Outros estilos para o índice de classificação
+        top: 21,
+        left: 20,
     },
-  
-      // Estilos para os demais rankings
+
       rectangleStyle: {
         position: 'absolute',
         left: 23,
@@ -190,26 +188,24 @@ export default function RankingNovo({ navigation }) {
         borderRadius: 20,
         backgroundColor: '#FFF',
         flexShrink: 0,
-        justifyContent: 'center', // Centraliza o conteúdo verticalmente
-        padding: 10, // Espaçamento interno
+        justifyContent: 'center',
+        padding: 10,
     },
     nameInsideRectangle: {
         color: '#000',
         fontWeight: 'bold',
         fontSize: 17,
         left: 85,
-        top:0, // Ajuste conforme necessário
-        // Outros estilos para o nome
+        top:0,
     },
     percentInsideRectangle: {
         color: '#000',
-        left: 300, // Ajuste conforme necessário
-        bottom:20 // Espaço acima da porcentagem para separá-la do nome
-        // Outros estilos para a porcentagem
+        left: 300,
+        bottom:20
     },
       ellipse1: { top: 208, left: 167 },
-      ellipse2: { bottom: 400, left: 74 }, // Ajuste esses valores conforme necessário
-      ellipse3: { top: 254, left: 70 }, // Ajuste esses valores conforme necessário
+      ellipse2: { bottom: 400, left: 74 },
+      ellipse3: { top: 254, left: 70 },
         overlapGroupWrapper: {
           width: 430,
           height: 932,
@@ -284,9 +280,9 @@ export default function RankingNovo({ navigation }) {
           height: 96,
           top: 107,
           left: 167,
-          borderWidth: 5, // Largura da borda
-          borderColor: 'gold', // Cor da borda para o primeiro lugar (amarelo ouro)
-          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
+          borderWidth: 5,
+          borderColor: 'gold',
+          borderRadius: 60,
         },
         ellipse2: {
           position: 'absolute',
@@ -294,9 +290,9 @@ export default function RankingNovo({ navigation }) {
           height: 84,
           top: 165,
           left: 53,
-          borderWidth: 5, // Largura da borda
-          borderColor: '#cd7f32', // Cor da borda para o segundo lugar (prata)
-          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
+          borderWidth: 5,
+          borderColor: '#cd7f32',
+          borderRadius: 60, 
       },
         ellipse3: {
           position: 'absolute',
@@ -304,9 +300,9 @@ export default function RankingNovo({ navigation }) {
           height: 84,
           top: 165,
           left: 293,
-          borderWidth: 5, // Largura da borda
-          borderColor: 'silver', // Cor da borda para o terceiro lugar (bronze)
-          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
+          borderWidth: 5,
+          borderColor: 'silver',
+          borderRadius: 60, 
         },
         textWrapper: {
           position: 'absolute',

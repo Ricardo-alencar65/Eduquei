@@ -119,14 +119,15 @@ const PerformanceBar = ({ percentual }) => {
   },
   container: {
     flex: 1,
-    backgroundColor: "#eff0f3", // Cor de fundo
-    paddingTop: 40, // Espaço no topo
+    backgroundColor: "#eff0f3", 
+    paddingTop: 40, 
     alignItems: 'center',
     justifyContent: 'flex-start',
+    minWidth: '100%'
 },
 backButton: {
     position: 'absolute',
-    top: 30, // Ajuste conforme necessário para descer o botão
+    top: 30, 
     left: 0,
     flexDirection: 'row',
     alignItems: 'center',
@@ -136,17 +137,17 @@ backButton: {
 backIcon: {
     width: 20, 
     height: 20, 
-    tintColor: '#004643', // Cor da seta
+    tintColor: '#004643',
     marginRight: 10,
 },
 backButtonText: {
-    color: '#004643', // Cor do texto
+    color: '#004643', 
     fontSize: 16,
     fontWeight: 'bold',
 },
 title: {
     fontSize: 32, 
-    color: '#004643', // Cor do título
+    color: '#004643', 
     fontWeight: 'bold',
     marginBottom: 20,
     textAlign: 'center',
@@ -174,25 +175,25 @@ cardTitle: {
 performanceBarContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start', // Alinha a barra à esquerda
+    justifyContent: 'flex-start', 
     width: '100%', 
     backgroundColor: '#abd1c6', 
     borderRadius: 10,
     overflow: 'hidden', 
-    marginLeft: '3%', // Ajuste para mover a barra mais para a esquerda
+    marginLeft: '3%', 
     marginRight: '5%',
 },
 performanceBar: {
     height: 20,
     borderRadius: 10,
-    backgroundColor: '#004643', // Cor da barra
-    maxWidth: '100%', // Limita a largura máxima a 100%
+    backgroundColor: '#004643', 
+    maxWidth: '100%',
 },
 performanceText: {
     color: '#004643',
     fontWeight: 'bold',
-    position: 'absolute', // Posiciona o texto sobre a barra
-    right: 10, // Posiciona o texto à direita
+    position: 'absolute',
+    right: 10,
 },
 buttonWelcome: {
     backgroundColor: '#004643',

@@ -5,12 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Welcome from './Welcome/index';
 import EscolhaArea from '../screens/escolhaArea';
-import Questoes from '../screens/questoes';
-import Login from '../screens/login';
-import CadastroTemp from '../screens/cadastroTemp';
 import Desempenho from '../screens/desempenho';
-import Cadastro from '../screens/cadastro';
-import Ranking from '../screens/ranking';
 import RankingNovo from '../screens/rankingNovo';
 
 import LoginNovo from '../screens/loginNovo';
@@ -54,13 +49,8 @@ function Router() {
         }}
       >
         <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown: false }} />
-        <Stack.Screen name="LoginScreen" component={Login} options={{ headerShown: false }} />
         <Stack.Screen name="EscolhaAreaScreen" component={EscolhaArea} options={{ headerShown: false }} />
-        <Stack.Screen name="Questoes" component={Questoes} options={{ headerShown: false }} />
-        <Stack.Screen name="CadastroTemp" component={CadastroTemp} options={{ headerShown: false }} />
-        <Stack.Screen name="Cadastro" component={Cadastro} options={{ headerShown: false }} />
         <Stack.Screen name="Desempenho" component={Desempenho} options={{ headerShown: false }} />
-        <Stack.Screen name="Ranking" component={Ranking} options={{ headerShown: false }} />
         <Stack.Screen name="LoginNovo" component={LoginNovo} options={{ headerShown: false }} />
         <Stack.Screen name="CadstroNovo" component={CadstroNovo} options={{ headerShown: false }} />
         <Stack.Screen name="TelaQuestao" component={TelaQuestao} options={{ headerShown: false }} />

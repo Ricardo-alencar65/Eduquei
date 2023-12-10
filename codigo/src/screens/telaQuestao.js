@@ -136,21 +136,19 @@ export default function TelaQuestao({ route, navigation }) {
         let backgroundColor;
     
         if (selectedAnswer) {
-            if (isSelectedAnswer && isCorrectAnswer) {
-                backgroundColor = 'green'; // Resposta correta
-            } else if (isSelectedAnswer && !isCorrectAnswer) {
-                backgroundColor = 'red'; // Resposta errada
-            } else if (!isSelectedAnswer && isCorrectAnswer) {
-                backgroundColor = 'green'; // Mostrar a resposta correta
+            if (isSelectedAnswer) {
+                backgroundColor = isCorrectAnswer ? styles.selectedOption.backgroundColor : '#f27276';
+            } else if (isCorrectAnswer) {
+                backgroundColor = '#abd1c6';
             } else {
-                backgroundColor = '#8453DE'; // Cor padrão para as outras opções
+                backgroundColor = styles.option.backgroundColor;
             }
         } else {
-            backgroundColor = '#8453DE'; // Cor padrão antes de selecionar uma resposta
+            backgroundColor = styles.option.backgroundColor;
         }
     
         return {
-            ...styles.buttonLong,
+            ...styles.option,
             backgroundColor,
             marginTop: answer === currentQuestion?.options[0] ? 20 : 10,
         };
@@ -182,19 +180,16 @@ export default function TelaQuestao({ route, navigation }) {
                     </View>
                 )}
     
-                {/* Opções de resposta */}
                 {currentQuestion && currentQuestion.options.map((answer, index) => (
                     <TouchableOpacity
                         key={index}
-                        style={selectedAnswer === answer ? styles.selectedOption : styles.option}
+                        style={buttonStyle(answer)}
                         onPress={() => handlePress(answer)}
                         disabled={selectedAnswer !== null}
                     >
                         <Text style={styles.optionText}>{answer}</Text>
                     </TouchableOpacity>
                 ))}
-    
-                {/* Botão para a próxima questão */}
                 {selectedAnswer && !showResults && (
                     <TouchableOpacity style={styles.nextButton} onPress={goToNextQuestion}>
                         <Text style={styles.nextButtonText}>Próxima</Text>
@@ -216,7 +211,7 @@ export default function TelaQuestao({ route, navigation }) {
     
                 {/* Botão para escolher outra área */}
                 <TouchableOpacity style={styles.anotherAreaButton} onPress={() => { navigation.navigate('EscolhaAreaScreen'); }}>
-                    <Text style={styles.anotherAreaButtonText}>Escolher outra área</Text>
+                    <Text style={styles.anotherAreaButtonText}>Escolher outra</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -228,6 +223,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#eff0f3',
+        minWidth: '100%'
     },
     div: {
         width: '90%',
