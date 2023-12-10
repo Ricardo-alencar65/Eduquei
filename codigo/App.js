@@ -18,13 +18,14 @@ import CadstroNovo from './src/screens/cadastroNovo';
 import RankingNovo from './src/screens/rankingNovo';
 import RankingJuncao from './src/screens/rankingJunção';
 import TelaQuestaot from './src/screens/telaquestaot';
+import CadastroTemp from './src/screens/cadastroTemp';
 const Stack = createStackNavigator();
 
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <RankingJuncao></RankingJuncao>
+      <Router></Router>
     </View>
   );
 }

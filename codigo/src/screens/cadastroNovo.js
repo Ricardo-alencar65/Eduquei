@@ -20,6 +20,8 @@ export default function CadstroNovo({ navigation }) {
                 senha: senha,
             });
             console.log('Usuário cadastrado com sucesso!');
+            await AsyncStorage.setItem('userName', nome);
+navigation.navigate('WelcomeScreen');
             navigation.navigate('LoginScreen');
         } catch (error) {
             console.error('Erro ao cadastrar usuário: ', error);

@@ -11,6 +11,8 @@ import CadastroTemp from '../screens/cadastroTemp';
 import Desempenho from '../screens/desempenho';
 import Cadastro from '../screens/cadastro';
 import Ranking from '../screens/ranking';
+import RankingNovo from '../screens/rankingNovo';
+
 import LoginNovo from '../screens/loginNovo';
 import CadstroNovo from '../screens/cadastroNovo';
 import TelaQuestao from '../screens/telaQuestao';
@@ -62,6 +64,8 @@ function Router() {
         <Stack.Screen name="LoginNovo" component={LoginNovo} options={{ headerShown: false }} />
         <Stack.Screen name="CadstroNovo" component={CadstroNovo} options={{ headerShown: false }} />
         <Stack.Screen name="TelaQuestao" component={TelaQuestao} options={{ headerShown: false }} />
+        <Stack.Screen name="RankingNovo" component={RankingNovo} options={{ headerShown: false }} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

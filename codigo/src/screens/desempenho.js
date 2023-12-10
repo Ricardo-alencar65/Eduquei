@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
 import { getFirestore, collection, query, where, getDocs } from 'firebase/firestore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -83,17 +83,22 @@ const PerformanceBar = ({ percentual }) => {
     };
 
     return (
-      <View style={styles.container}>
-          <Text style={styles.title}>Desempenho</Text>
+        <View style={styles.container}>
+        <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+            <Image 
+              style={styles.backIcon} 
+              source={require('../../assets/left.png')} 
+              resizeMode="contain" 
+            />
+            <Text style={styles.backButtonText}>Anterior</Text>
+        </TouchableOpacity>       
+        <Text style={styles.title}>Desempenho</Text>
           {Object.entries(desempenhos).map(([area, percentual], index) => (
               <View key={index} style={styles.card}>
                   <Text style={styles.cardTitle}>{area}:</Text>
                   <PerformanceBar percentual={parseInt(percentual)} />
               </View>
           ))}
-          <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Welcome'); }}>
-              <Text style={styles.buttonTextWelcome}>Início</Text>
-          </TouchableOpacity>
       </View>
   );
   }
@@ -112,123 +117,101 @@ const PerformanceBar = ({ percentual }) => {
       marginLeft: 10,
       color: '#fff',
   },
-    container: {
-        flex: 1,
-        backgroundColor: "#1c1c1c",
-        paddingTop: 40,
-    },
-    title: {
-        fontSize: 34,
-        color: '#fff',
-        fontWeight: 'bold',
-        marginBottom: 20,
-        textAlign: 'center',
-    },
-    tabContainer: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        marginBottom: 20,
-    },
-    tab: {
-        backgroundColor: '#8453DE',
-        paddingVertical: 10,
-        paddingHorizontal: 20,
-        borderRadius: 20,
-        marginHorizontal: 5,
-        shadowColor: '#8453DE',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.3,
-        shadowRadius: 3,
-        elevation: 4,
-    },
-    tabText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
-    },
-    card: {
-        backgroundColor: '#6C5B7B',
-        width: '90%',
-        borderRadius: 20,
-        padding: 20,
-        marginVertical: 10,
-        alignSelf: 'center',
-        shadowColor: '#6C5B7B',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.25,
-        shadowRadius: 5,
-        elevation: 6,
-    },
-    cardTitle: {
-        color: '#fff',
-        fontSize: 20,
-        fontWeight: 'bold',
-        marginBottom: 10,
-    },
-    cardContent: {
-        color: '#fff',
-        fontSize: 18,
-        marginBottom: 5,
-    },
-    buttonWelcome: {
-        backgroundColor: '#FF3B30',
-        paddingVertical: 15,
-        paddingHorizontal: 30,
-        borderRadius: 25,
-        marginVertical: 20,
-        width: '60%',
-        alignSelf: 'center',
-        shadowColor: '#FF3B30',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
-        elevation: 6,
-    },
-    buttonTextWelcome: {
-        color: 'white',
-        fontSize: 18,
-        fontWeight: 'bold',
-        textAlign: 'center',
-    },
-    card: {
-      backgroundColor: '#6C5B7B',
-      width: '90%',
-      borderRadius: 20,
-      padding: 20,
-      marginVertical: 10,
-      alignSelf: 'center',
-      shadowColor: '#6C5B7B',
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.25,
-      shadowRadius: 5,
-      elevation: 6,
-      flexDirection: 'row',
-      alignItems: 'center',
-  },
-  cardIcon: {
-      width: 40,
-      height: 40,
-      marginRight: 10,
-      // Inserir uma imagem representativa para cada área aqui
-  },
-  cardContent: {
-      flex: 1,
-  },
-  cardTitle: {
-      color: '#fff',
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginBottom: 5,
-  },
-  performanceBar: {
-      height: 20,
-      borderRadius: 10,
-      // A cor da barra de desempenho será definida dinamicamente com base na porcentagem
-  },
-  performanceText: {
-      color: '#fff',
-      fontSize: 16,
-      fontWeight: 'bold',
-      marginTop: 5,
-  },
-  });
+  container: {
+    flex: 1,
+    backgroundColor: "#eff0f3", // Cor de fundo
+    paddingTop: 40, // Espaço no topo
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+},
+backButton: {
+    position: 'absolute',
+    top: 30, // Ajuste conforme necessário para descer o botão
+    left: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+},
+backIcon: {
+    width: 20, 
+    height: 20, 
+    tintColor: '#004643', // Cor da seta
+    marginRight: 10,
+},
+backButtonText: {
+    color: '#004643', // Cor do texto
+    fontSize: 16,
+    fontWeight: 'bold',
+},
+title: {
+    fontSize: 32, 
+    color: '#004643', // Cor do título
+    fontWeight: 'bold',
+    marginBottom: 20,
+    textAlign: 'center',
+    marginTop: 40,
+},
+card: {
+    backgroundColor: '#ffffff',
+    borderRadius: 20,
+    padding: 20,
+    marginVertical: 10,
+    width: '90%',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 6,
+},
+cardTitle: {
+    color: '#000',
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginBottom: 10,
+},
+
+performanceBarContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start', // Alinha a barra à esquerda
+    width: '100%', 
+    backgroundColor: '#abd1c6', 
+    borderRadius: 10,
+    overflow: 'hidden', 
+    marginLeft: '3%', // Ajuste para mover a barra mais para a esquerda
+    marginRight: '5%',
+},
+performanceBar: {
+    height: 20,
+    borderRadius: 10,
+    backgroundColor: '#004643', // Cor da barra
+    maxWidth: '100%', // Limita a largura máxima a 100%
+},
+performanceText: {
+    color: '#004643',
+    fontWeight: 'bold',
+    position: 'absolute', // Posiciona o texto sobre a barra
+    right: 10, // Posiciona o texto à direita
+},
+buttonWelcome: {
+    backgroundColor: '#004643',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 25,
+    marginVertical: 20,
+    width: '60%',
+    alignSelf: 'center',
+    shadowColor: '#004643',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 6,
+},
+buttonTextWelcome: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+},
+});

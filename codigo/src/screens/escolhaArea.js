@@ -8,33 +8,43 @@ export default function EscolhaArea({ navigation }) {
 
     return (
         <ScrollView contentContainerStyle={styles.scrollViewContainer}>
+    <TouchableOpacity style={styles.backButton} onPress={() => navigation.goBack()}>
+                <Image style={styles.backIcon} source={require('../../assets/left.png')} />
+                <Text style={styles.backButtonText}>Anterior</Text>
+            </TouchableOpacity>
             <View style={styles.boxWelcome}>
                 <Text style={styles.quizTitle}>Quiz Conhecimentos Gerais</Text>
                 <Text style={styles.textTitle}>Escolha uma categoria</Text>
                 <Text style={styles.textBody}>As perguntas serão referentes a uma das áreas</Text>
 
                 <View style={styles.gridContainer}>
-                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('01')}>
-                        <Text style={styles.buttonText}>Entretenimento</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('02')}>
-                        <Text style={styles.buttonText}>Esportes</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('03')}>
-                        <Text style={styles.buttonText}>Ciência e Tecnologia</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('04')}>
-                        <Text style={styles.buttonText}>Atualidades</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('05')}>
-                        <Text style={styles.buttonText}>História</Text>
-                    </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={styles.buttonWelcome} onPress={() => { navigation.navigate('Welcome'); }}>
-                    <Text style={styles.buttonTextWelcome}>Início</Text>
-                </TouchableOpacity>
+                    {/* Primeira Linha */}
+                    <View style={styles.row}>
+                        <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('01')}>
+                            <Text style={styles.buttonText}>Entretenimento</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('02')}>
+                            <Text style={styles.buttonText}>Esportes</Text>
+                        </TouchableOpacity>
+                    </View>
 
-                <Image style={styles.imageWelcome} source={require('../../assets/quiz.png')} alt="Início do Quiz" />
+                    {/* Segunda Linha */}
+                    <View style={styles.row}>
+                        <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('03')}>
+                            <Text style={styles.buttonText}>Ciência e Tecnologia</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('04')}>
+                            <Text style={styles.buttonText}>Atualidades</Text>
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Terceira Linha para História */}
+                    <View style={styles.row}>
+                        <TouchableOpacity style={styles.button} onPress={() => goToQuestionsForArea('05')}>
+                            <Text style={styles.buttonText}>História</Text>
+                        </TouchableOpacity>
+                    </View>
+                </View>
             </View>
         </ScrollView>
     );
@@ -45,41 +55,44 @@ const styles = StyleSheet.create({
         flexGrow: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#1c1c1c', // Mantendo o fundo consistente com a tela anterior
+        backgroundColor: '#004643b2',
+        padding: 20,
     },
     gridContainer: {
+        width: '100%',
+    },
+    row: {
         flexDirection: 'row',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
         alignItems: 'center',
-        marginBottom: 20,
+        marginBottom: 15,
     },
     button: {
-        paddingVertical: 15,
-        paddingHorizontal: 25,
-        backgroundColor: '#8453DE', // Cor roxa padrão, como na tela anterior
-        borderRadius: 25,
-        margin: 10,
-        minWidth: '45%',
-        shadowColor: "#8453DE",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
+        width: '45%',
+        paddingVertical: 30,
+        paddingHorizontal: 20,
+        backgroundColor: '#f8c660',
+        borderRadius: 20,
+        margin: 15,
+        width: '45%',
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 4 },
         shadowOpacity: 0.3,
         shadowRadius: 5,
         elevation: 6,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     buttonText: {
-        color: 'white',
+        color: '#004643',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
     },
     boxWelcome: {
         alignItems: 'center',
-        maxWidth: 500,
-        paddingVertical: 50,
+        width: '100%',
+        marginBottom: 30,
     },
     quizTitle: {
         color: '#ffffff',
@@ -91,7 +104,7 @@ const styles = StyleSheet.create({
     textTitle: {
         color: '#ffffff',
         fontSize: 24,
-        marginBottom: 18,
+        marginBottom: 30,
         textAlign: 'center',
     },
     textBody: {
@@ -100,33 +113,27 @@ const styles = StyleSheet.create({
         marginBottom: 30,
         textAlign: 'center',
     },
-    buttonWelcome: {
-        paddingVertical: 15,
-        paddingHorizontal: 30,
-        backgroundColor: '#FF3B30', // Botão de retorno
-        borderRadius: 20,
-        marginVertical: 20,
-        width: '60%',
-        alignSelf: 'center',
-        shadowColor: "#FF3B30",
-        shadowOffset: {
-            width: 0,
-            height: 4,
-        },
-        shadowOpacity: 0.3,
-        shadowRadius: 5,
-        elevation: 6,
+    backButton: {
+        position: 'absolute',
+        top: 40, // Ajustado para posicionar um pouco mais abaixo
+        left: 20,
+        flexDirection: 'row', // Alinhamento horizontal do ícone e do texto
+        alignItems: 'center', // Centraliza verticalmente os itens dentro do botão
     },
-    buttonTextWelcome: {
+    backIcon: {
+        width: 30, // Aumentado o tamanho do ícone
+        height: 30, // Aumentado o tamanho do ícone
+        tintColor: '#ffffff', // Cor branca para o ícone
+    },
+    backButtonText: {
+        color: '#ffffff', // Cor branca para o texto
+        marginLeft: 10, // Espaçamento entre o ícone e o texto
+        fontSize: 16, // Tamanho da fonte do texto
+    },
+    buttonTextPrevious: {
         color: 'white',
         fontSize: 18,
         fontWeight: 'bold',
         textAlign: 'center',
-    },
-    imageWelcome: {
-        width: 300,
-        height: 200,
-        resizeMode: 'contain',
-        marginTop: 40,
     },
 });

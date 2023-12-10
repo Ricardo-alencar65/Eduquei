@@ -36,44 +36,46 @@ export default function LoginNovo({ navigation }) {
     };
 
     return (
-        <View style={styles.overlapGroupWrapper}>
-                <View style={styles.overlapGroup}>
-                    <View style={styles.overlap}>
-                        <Text style={styles.textWrapper}>QUIZ</Text>
-                        <Text style={styles.div}>Khelo</Text>
-                    </View>
-
-                    {/* Container para os Inputs de Login */}
-                    <View style={styles.inputsContainer}>
-                        <TextInput 
-                            style={erroLogin ? styles.inputError : styles.input} 
-                            placeholder="Email" 
-                            placeholderTextColor="#aaa"
-                            keyboardType="email-address"
-                            value={email}
-                            onChangeText={(val) => setEmail(val)}
-                        />
-                        <TextInput 
-                            style={erroLogin ? styles.inputError : styles.input} 
-                            placeholder="Senha" 
-                            placeholderTextColor="#aaa"
-                            secureTextEntry={true}
-                            value={password}
-                            onChangeText={(val) => setSenha(val)}
-                        />
-                        {erroLogin && <Text style={styles.errorMessage}>E-mail ou senha incorretos</Text>}
-                    </View>
-
-                    {/* Botão Start */}
-                    <TouchableOpacity style={styles.overlap2} onPress={handleLogin}>
-                        <Text style={styles.textWrapper4}>Login</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={{ top: 202, }} onPress={() => navigation.navigate('CadstroNovo')}>
-                    <Text style={{fontSize: 20}}>Cadastro</Text>
-            </TouchableOpacity>
-                </View>
-            </View>
-    );
+      <ScrollView style={{ flex: 1 }} keyboardShouldPersistTaps='handled'>
+          <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.container}>
+              
+              <View style={styles.logoContainer}>
+                  <Text style={styles.textWrapper}>QUIZ</Text>
+                  <Text style={styles.div}>Khelo</Text>
+              </View>
+  
+              <View style={styles.inputsContainer}>
+                  <TextInput 
+                      style={erroLogin ? styles.inputError : styles.input} 
+                      placeholder="Email" 
+                      placeholderTextColor="#aaa"
+                      keyboardType="email-address"
+                      value={email}
+                      onChangeText={(val) => setEmail(val)}
+                  />
+                  <TextInput 
+                      style={erroLogin ? styles.inputError : styles.input} 
+                      placeholder="Senha" 
+                      placeholderTextColor="#aaa"
+                      secureTextEntry={true}
+                      value={password}
+                      onChangeText={(val) => setSenha(val)}
+                  />
+                  {erroLogin && <Text style={styles.errorMessage}>E-mail ou senha incorretos</Text>}
+  
+                  <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+                      <Text style={styles.loginButtonText}>Login</Text>
+                  </TouchableOpacity>
+                  <TouchableOpacity onPress={() => navigation.navigate('CadstroNovo')}>
+                      <Text style={styles.registerText}>Cadastro</Text>
+                  </TouchableOpacity>
+              </View>
+  
+          </KeyboardAvoidingView>
+      </ScrollView>
+  );
+  
+  
 }
 
     const styles = StyleSheet.create({
@@ -85,11 +87,12 @@ export default function LoginNovo({ navigation }) {
           width: '100%',
         },
         overlapGroupWrapper: {
-          height: 932,
-          width: 430,
-          justifyContent: 'space-between', // Isso irá distribuir o espaço igualmente
-        flex: 1,
-        },
+          flex: 1,
+          justifyContent: 'flex-start', // Mudança aqui
+          alignItems: 'center',
+          padding: 20, // Adicionado algum padding para espaço extra
+      },
+      
         overlapGroup: {
           backgroundColor: '#004643b2',
           height: 932,
@@ -149,11 +152,24 @@ export default function LoginNovo({ navigation }) {
           position: 'absolute',
           top: 15,
         },
-        inputsContainer: {
-            // Estilos para o container dos campos de entrada
-            width: '80%', // ou outro valor conforme necessário
-            alignItems: 'center', // Centraliza os filhos horizontalmente
-        },
+        container: {
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+      },
+      logoContainer: {
+          flex: 1,
+          justifyContent: 'center',
+          alignItems: 'center',
+          // Ajuste o tamanho e estilo da logo conforme necessário
+      },
+      inputsContainer: {
+          flex: 2,
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '80%',
+          // Outros estilos para os inputs e botões
+      },
         input: {
             width: 300,
             padding: 15,

@@ -1,74 +1,219 @@
-import React from 'react';
-import { StyleSheet, View, Text, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 export default function RankingNovo({ navigation }) {
-    return (
-        <View style={styles.leaderboardScreen}>
-          <View style={styles.overlapGroupWrapper}>
-            <View style={styles.overlapGroup}>
-              <Image style={styles.rectangle} source={require('../../assets/Rectangle1.png')} />
-              <View style={styles.div}></View>
-              <View style={styles.rectangle2}></View>
-              <View style={styles.rectangle3}></View>
-              <View style={styles.rectangle4}></View>
-              <View style={styles.rectangle5}></View>
-              <Image style={styles.img} source={require('../../assets/Rectangle2.png')} />
-              <Image style={styles.ellipse} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.ellipse2} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.ellipse3} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Text style={styles.textWrapper}>Leaderboard</Text>
-              <Image style={styles.materialSymbols} source={require('../../assets/left.png')} />
-              <Text style={styles.textWrapper2}>David James</Text>
-              <Text style={styles.textWrapper3}>9/10</Text>
-              <Text style={styles.textWrapper4}>John Deh</Text>
-              <Text style={styles.textWrapper5}>Michael</Text>
-              <Text style={styles.textWrapper6}>8/10</Text>
-              <Text style={styles.textWrapper7}>7/10</Text>
-              <View style={styles.ellipse4}></View>
-              <View style={styles.ellipse5}></View>
-              <Text style={styles.textWrapper8}>3</Text>
-              <View style={styles.ellipse6}></View>
-              <Text style={styles.textWrapper9}>3</Text>
-              <Text style={styles.textWrapper10}>1</Text>
-              <Image style={styles.group} source={require('../../assets/coroa.png')} />
-              <Text style={styles.textWrapper11}>4</Text>
-              <Text style={styles.textWrapper12}>5</Text>
-              <Text style={styles.textWrapper13}>6</Text>
-              <Text style={styles.textWrapper14}>7</Text>
-              <Text style={styles.textWrapper15}>8</Text>
-              <Text style={styles.textWrapper16}>Smith Carol</Text>
-              <Text style={styles.textWrapper17}>Harry</Text>
-              <Text style={styles.textWrapper18}>Jon</Text>
-              <Text style={styles.textWrapper19}>Ken</Text>
-              <Text style={styles.textWrapper20}>Petter</Text>
-              <Text style={styles.textWrapper21}>6/10</Text>
-              <Text style={styles.textWrapper22}>5/10</Text>
-              <Text style={styles.textWrapper23}>4/10</Text>
-              <Text style={styles.textWrapper24}>3/10</Text>
-              <Text style={styles.textWrapper25}>2/10</Text>
-              <Image style={styles.maskGroup} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.maskGroup2} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.maskGroup3} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.maskGroup4} source={require('../../assets/iconeAnonimo.jpeg')} />
-              <Image style={styles.maskGroup5} source={require('../../assets/iconeAnonimo.jpeg')} />
-            </View>
-          </View>
-        </View>
-      );
+  const [rankings, setRankings] = useState([]);
+
+  useEffect(() => {
+    const fetchRankings = async () => {
+        const db = getFirestore();
+        const desempenhoRef = collection(db, 'desempenho');
+        const desempenhoSnapshot = await getDocs(desempenhoRef);
+        const usuariosRef = collection(db, 'usuario');
+        const usuariosSnapshot = await getDocs(usuariosRef);
+
+        let desempenhos = [];
+        let usuarios = {};
+
+        usuariosSnapshot.forEach((doc) => {
+            usuarios[doc.id] = doc.data();
+        });
+
+        let usuarioDesempenho = {};
+
+        desempenhoSnapshot.forEach((doc) => {
+            const data = doc.data();
+            const usuarioId = data.usuarioId;
+
+            usuarioDesempenho[usuarioId] = usuarioDesempenho[usuarioId] || {
+                acertosF: 0,
+                totalF: 0,
+                acertosM: 0,
+                totalM: 0,
+                acertosD: 0,
+                totalD: 0
+            };
+
+            usuarioDesempenho[usuarioId].acertosF += data.facil.acertos;
+            usuarioDesempenho[usuarioId].totalF += data.facil.total;
+            usuarioDesempenho[usuarioId].acertosM += data.medio.acertos;
+            usuarioDesempenho[usuarioId].totalM += data.medio.total;
+            usuarioDesempenho[usuarioId].acertosD += data.dificil.acertos;
+            usuarioDesempenho[usuarioId].totalD += data.dificil.total;
+        });
+
+        for (const usuarioId in usuarioDesempenho) {
+            const { acertosF, totalF, acertosM, totalM, acertosD, totalD } = usuarioDesempenho[usuarioId];
+            const totalQuestoes = totalF + totalM + totalD;
+
+            if (totalQuestoes >= 10) {
+                const desempenhoTotal = calcularDesempenho(acertosF, acertosM, acertosD, totalF, totalM, totalD);
+                desempenhos.push({
+                    usuarioId: usuarioId,
+                    desempenho: desempenhoTotal,
+                    nomeCompleto: `${usuarios[usuarioId]?.nome || ''} ${usuarios[usuarioId]?.sobrenome || ''}`,
+                    totalQuestoes: totalQuestoes
+                });
+            }
+        }
+
+        desempenhos.sort((a, b) => b.desempenho - a.desempenho);
+        setRankings(desempenhos);
     };
-    
+
+    fetchRankings();
+  }, []);
+
+  const calcularDesempenho = (acertosF, acertosM, acertosD, totalF, totalM, totalD) => {
+      return ((acertosF * 5) + (acertosM * 3) + (acertosD * 1)) / ((totalF * 5) + (totalM * 3) + (totalD * 1)) * 100;
+  };
+
+  return (
+        <View style={styles.leaderboardScreen}>
+                      <ScrollView style={styles.scrollViewStyle}>
+
+            <View style={styles.overlapGroupWrapper}>
+                <View style={styles.overlapGroup}>
+                    <Image style={styles.rectangle} source={require('../../assets/Rectangle1.png')} />
+                    <Image style={styles.imgCoroa} source={require('../../assets/coroa.png')} />
+
+                    <Image style={styles.img} source={require('../../assets/Rectangle2.png')} />
+                    <Image style={styles.ellipse} source={require('../../assets/iconeAnonimo.jpeg')} />
+                    <Image style={styles.ellipse2} source={require('../../assets/iconeAnonimo.jpeg')} />
+                    <Image style={styles.ellipse3} source={require('../../assets/iconeAnonimo.jpeg')} />
+                    <Text style={styles.textWrapper}>Ranking</Text>
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <Image style={styles.materialSymbols} source={require('../../assets/left.png')} />
+                </TouchableOpacity>
+                    {rankings.map((ranking, index) => {
+                        if (index < 3) {
+                            let nomeStyle = {};
+                            let porcentagemStyle = {};
+                            const ellipseWidth = 96;
+                            const textWidth = 150;
+
+                            if (index === 0) {
+                                const leftPosition = 167 + (ellipseWidth / 2) - (textWidth / 2);
+                                nomeStyle = { ...styles.nameText, top: 208, left: leftPosition, width: textWidth, textAlign: 'center' };
+                                porcentagemStyle = { ...styles.porcentagemText, top: 228, left: leftPosition, width: textWidth, textAlign: 'center' };
+                            } else if (index === 1) {
+                                const leftPosition = 290 + (ellipseWidth / 2) - (textWidth / 2);
+                                nomeStyle = { ...styles.nameText, top: 255, left: leftPosition, width: textWidth, textAlign: 'center' };
+                                porcentagemStyle = { ...styles.porcentagemText, top: 270, left: leftPosition, width: textWidth, textAlign: 'center' };
+                            } else if (index === 2) {
+                                const leftPosition = 50 + (ellipseWidth / 2) - (textWidth / 2);
+                                nomeStyle = { ...styles.nameText, top: 255, left: leftPosition, width: textWidth, textAlign: 'center' };
+                                porcentagemStyle = { ...styles.porcentagemText, top: 270, left: leftPosition, width: textWidth, textAlign: 'center' };
+                            }
+
+                            return (
+                                <React.Fragment key={ranking.usuarioId}>
+                                    <Text style={nomeStyle}>
+                                        {ranking.nomeCompleto}
+                                    </Text>
+                                    <Text style={porcentagemStyle}>
+                                        {`${ranking.desempenho.toFixed(2)}%`}
+                                    </Text>
+                                </React.Fragment>
+                            );
+                        } else {
+                            // Ajustes para os rankings a partir do 4º lugar
+                            const topPositionRectangle = 400 + (index - 3) * (64 + 30); // Posicionamento do retângulo
+
+                            return (
+                              <View key={ranking.usuarioId} style={{...styles.rectangleStyle, top: topPositionRectangle}}>
+                                  <Text style={styles.rankInsideRectangle}>
+                                      {index + 1}
+                                  </Text>
+                                  <Text style={styles.nameInsideRectangle}>
+                                      {ranking.nomeCompleto}
+                                  </Text>
+                                  <Text style={styles.percentInsideRectangle}>
+                                      {`${ranking.desempenho.toFixed(2)}%`}
+                                  </Text>
+                              </View>
+                          );
+                      }
+                  })}
+                </View>
+            </View>
+            </ScrollView>
+
+        </View>
+    );
+};
     const styles = StyleSheet.create({
+      scrollViewStyle: {
+        width: '100%',
+    },
+    imgCoroa: {
+      position: 'absolute',
+      width: 26, // Largura da coroa
+      height: 20.795, // Altura da coroa
+      top: 107 - (20.795 / 2) - 15,// Posiciona acima do círculo do primeiro lugar
+      left: 167 + (96 / 2) - (26 / 2), // Centraliza em relação ao círculo
+      zIndex: 1, // Garante que a coroa fique acima do círculo
+      flexShrink: 0, // Impede o redimensionamento automático da imagem
+  },
         leaderboardScreen: {
           backgroundColor: 'transparent',
           flexDirection: 'row',
           justifyContent: 'center',
           width: '100%',
         },
+        nameText: {
+          position: 'absolute',
+          color: '#ffffff',
+          fontWeight: 'bold',
+      },
+      porcentagemText: {
+          position: 'absolute',
+          color: '#ffffff',
+      },
+      rankInsideRectangle: {
+        position: 'relative',
+        color: '#000',
+        fontSize:17,
+        fontWeight: 'bold',
+        top: 21, // Ajuste a posição conforme necessário
+        left: 20, // Ajuste a posição conforme necessário
+        // Outros estilos para o índice de classificação
+    },
+  
+      // Estilos para os demais rankings
+      rectangleStyle: {
+        position: 'absolute',
+        left: 23,
+        width: 383,
+        height: 64,
+        borderRadius: 20,
+        backgroundColor: '#FFF',
+        flexShrink: 0,
+        justifyContent: 'center', // Centraliza o conteúdo verticalmente
+        padding: 10, // Espaçamento interno
+    },
+    nameInsideRectangle: {
+        color: '#000',
+        fontWeight: 'bold',
+        fontSize: 17,
+        left: 85,
+        top:0, // Ajuste conforme necessário
+        // Outros estilos para o nome
+    },
+    percentInsideRectangle: {
+        color: '#000',
+        left: 300, // Ajuste conforme necessário
+        bottom:20 // Espaço acima da porcentagem para separá-la do nome
+        // Outros estilos para a porcentagem
+    },
+      ellipse1: { top: 208, left: 167 },
+      ellipse2: { bottom: 400, left: 74 }, // Ajuste esses valores conforme necessário
+      ellipse3: { top: 254, left: 70 }, // Ajuste esses valores conforme necessário
         overlapGroupWrapper: {
           width: 430,
           height: 932,
-          // Nota: React Native não suporta background images da mesma forma que o CSS
-          // Você terá que usar um componente ImageBackground para isso
+
         },
         overlapGroup: {
           position: 'relative',
@@ -139,6 +284,9 @@ export default function RankingNovo({ navigation }) {
           height: 96,
           top: 107,
           left: 167,
+          borderWidth: 5, // Largura da borda
+          borderColor: 'gold', // Cor da borda para o primeiro lugar (amarelo ouro)
+          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
         },
         ellipse2: {
           position: 'absolute',
@@ -146,29 +294,36 @@ export default function RankingNovo({ navigation }) {
           height: 84,
           top: 165,
           left: 53,
-          // objectFit: 'cover', // objectFit não é suportado em React Native
-        },
+          borderWidth: 5, // Largura da borda
+          borderColor: '#cd7f32', // Cor da borda para o segundo lugar (prata)
+          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
+      },
         ellipse3: {
           position: 'absolute',
           width: 84,
           height: 84,
           top: 165,
           left: 293,
+          borderWidth: 5, // Largura da borda
+          borderColor: 'silver', // Cor da borda para o terceiro lugar (bronze)
+          borderRadius: 60, // Metade da largura/altura do círculo para torná-lo redondo
         },
         textWrapper: {
           position: 'absolute',
-          top: 19,
-          left: 153,
+          top: 40,
+          left: 170,
           fontWeight: '600',
           color: '#ffffff',
-          fontSize: 22,
+          fontSize: 24,
         },
         materialSymbols: {
           position: 'absolute',
           width: 44,
           height: 44,
-          top: 15,
-          left: 23,
+          top: 30,
+          left: 15,
+          tintColor: '#ffffff',
+
         },
         textWrapper2: {
           position: 'absolute',

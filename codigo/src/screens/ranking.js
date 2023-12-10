@@ -1,77 +1,73 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { getFirestore, collection, query, getDocs } from 'firebase/firestore';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
-export default function RankingScreen({ navigation }) {
-    const [rankings, setRankings] = useState([]);
+export default function RankingNovo({ navigation }) {
+  const [rankings, setRankings] = useState([]);
 
-    useEffect(() => {
-        const fetchRankings = async () => {
-            const db = getFirestore();
-            const desempenhoRef = collection(db, 'desempenho');
-            const desempenhoSnapshot = await getDocs(desempenhoRef);
-            const usuariosRef = collection(db, 'usuario');
-            const usuariosSnapshot = await getDocs(usuariosRef);
-    
-            let desempenhos = [];
-            let usuarios = {};
-    
-            usuariosSnapshot.forEach((doc) => {
-                usuarios[doc.id] = doc.data();
-            });
-    
-            let usuarioDesempenho = {};
-    
-            desempenhoSnapshot.forEach((doc) => {
-                const data = doc.data();
-                const usuarioId = data.usuarioId;
-    
-                usuarioDesempenho[usuarioId] = usuarioDesempenho[usuarioId] || {
-                    acertosF: 0,
-                    totalF: 0,
-                    acertosM: 0,
-                    totalM: 0,
-                    acertosD: 0,
-                    totalD: 0
-                };
-    
-                usuarioDesempenho[usuarioId].acertosF += data.facil.acertos;
-                usuarioDesempenho[usuarioId].totalF += data.facil.total;
-                usuarioDesempenho[usuarioId].acertosM += data.medio.acertos;
-                usuarioDesempenho[usuarioId].totalM += data.medio.total;
-                usuarioDesempenho[usuarioId].acertosD += data.dificil.acertos;
-                usuarioDesempenho[usuarioId].totalD += data.dificil.total;
-            });
-    
-            for (const usuarioId in usuarioDesempenho) {
-                const { acertosF, totalF, acertosM, totalM, acertosD, totalD } = usuarioDesempenho[usuarioId];
-                const totalQuestoes = totalF + totalM + totalD;
-    
-                if (totalQuestoes >= 10) {
-                    const desempenhoTotal = calcularDesempenho(acertosF, acertosM, acertosD, totalF, totalM, totalD);
-    
-                    console.log(`Usuário: ${usuarioId}, Total Fácil: ${totalF}, Acertos Fácil: ${acertosF}, Total Médio: ${totalM}, Acertos Médio: ${acertosM}, Total Difícil: ${totalD}, Acertos Difícil: ${acertosD}`);
-    
-                    desempenhos.push({
-                        usuarioId: usuarioId,
-                        desempenho: desempenhoTotal,
-                        nomeCompleto: `${usuarios[usuarioId].nome} ${usuarios[usuarioId].sobrenome}`,
-                        totalQuestoes: totalQuestoes
-                    });
-                }
+  useEffect(() => {
+    const fetchRankings = async () => {
+        const db = getFirestore();
+        const desempenhoRef = collection(db, 'desempenho');
+        const desempenhoSnapshot = await getDocs(desempenhoRef);
+        const usuariosRef = collection(db, 'usuario');
+        const usuariosSnapshot = await getDocs(usuariosRef);
+
+        let desempenhos = [];
+        let usuarios = {};
+
+        usuariosSnapshot.forEach((doc) => {
+            usuarios[doc.id] = doc.data();
+        });
+
+        let usuarioDesempenho = {};
+
+        desempenhoSnapshot.forEach((doc) => {
+            const data = doc.data();
+            const usuarioId = data.usuarioId;
+
+            usuarioDesempenho[usuarioId] = usuarioDesempenho[usuarioId] || {
+                acertosF: 0,
+                totalF: 0,
+                acertosM: 0,
+                totalM: 0,
+                acertosD: 0,
+                totalD: 0
+            };
+
+            usuarioDesempenho[usuarioId].acertosF += data.facil.acertos;
+            usuarioDesempenho[usuarioId].totalF += data.facil.total;
+            usuarioDesempenho[usuarioId].acertosM += data.medio.acertos;
+            usuarioDesempenho[usuarioId].totalM += data.medio.total;
+            usuarioDesempenho[usuarioId].acertosD += data.dificil.acertos;
+            usuarioDesempenho[usuarioId].totalD += data.dificil.total;
+        });
+
+        for (const usuarioId in usuarioDesempenho) {
+            const { acertosF, totalF, acertosM, totalM, acertosD, totalD } = usuarioDesempenho[usuarioId];
+            const totalQuestoes = totalF + totalM + totalD;
+
+            if (totalQuestoes >= 10) {
+                const desempenhoTotal = calcularDesempenho(acertosF, acertosM, acertosD, totalF, totalM, totalD);
+                desempenhos.push({
+                    usuarioId: usuarioId,
+                    desempenho: desempenhoTotal,
+                    nomeCompleto: `${usuarios[usuarioId]?.nome || ''} ${usuarios[usuarioId]?.sobrenome || ''}`,
+                    totalQuestoes: totalQuestoes
+                });
             }
-    
-            desempenhos.sort((a, b) => b.desempenho - a.desempenho);
-            setRankings(desempenhos);
+        }
 
-        };
-    
-        fetchRankings();
-    }, []);
-
-    const calcularDesempenho = (acertosF, acertosM, acertosD, totalF, totalM, totalD) => {
-        return ((acertosF * 5) + (acertosM * 3) + (acertosD * 1)) / ((totalF * 5) + (totalM * 3) + (totalD * 1)) * 100;
+        desempenhos.sort((a, b) => b.desempenho - a.desempenho);
+        setRankings(desempenhos);
     };
+
+    fetchRankings();
+  }, []);
+
+  const calcularDesempenho = (acertosF, acertosM, acertosD, totalF, totalM, totalD) => {
+      return ((acertosF * 5) + (acertosM * 3) + (acertosD * 1)) / ((totalF * 5) + (totalM * 3) + (totalD * 1)) * 100;
+  };
 
     return (
         <View style={styles.container}>
