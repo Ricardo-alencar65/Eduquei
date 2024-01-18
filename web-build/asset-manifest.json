@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/static/js/main.4c5692ef.js",
+    "static/js/424.08f2ec5e.js": "/static/js/424.08f2ec5e.js",
+    "static/media/iconeAnonimo.jpeg": "/static/media/iconeAnonimo.50cb32cb6a97dab88508.jpeg",
+    "static/media/Rectangle1.png": "/static/media/Rectangle1.8c0a1a68c12d99e9b1b3.png",
+    "static/media/Rectangle2.png": "/static/media/Rectangle2.e065a34277b168da1c03.png",
+    "index.html": "/index.html",
+    "static/media/coroa.png": "/static/media/coroa.cb18360a7f871e87e400.png",
+    "manifest.json": "/manifest.json",
+    "serve.json": "/serve.json",
+    "main.4c5692ef.js.map": "/static/js/main.4c5692ef.js.map",
+    "424.08f2ec5e.js.map": "/static/js/424.08f2ec5e.js.map"
+  },
+  "entrypoints": [
+    "static/js/424.08f2ec5e.js",
+    "static/js/main.4c5692ef.js"
+  ]
+}
