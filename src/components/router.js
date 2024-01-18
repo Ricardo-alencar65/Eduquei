@@ -7,11 +7,9 @@ import Welcome from './Welcome/index';
 import EscolhaArea from '../screens/escolhaArea';
 import Desempenho from '../screens/desempenho';
 import RankingNovo from '../screens/rankingNovo';
-
 import LoginNovo from '../screens/loginNovo';
 import CadstroNovo from '../screens/cadastroNovo';
 import TelaQuestao from '../screens/telaQuestao';
-
 const Stack = createStackNavigator();
 
 function Router() {

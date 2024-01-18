@@ -189,7 +189,7 @@ export default function LoginNovo({ navigation }) {
           height: 59,
           left: 23,
           position: 'absolute',
-          top: 622,
+          top: 552,
           width: 383,
         },
         textWrapper4: {
@@ -202,7 +202,7 @@ export default function LoginNovo({ navigation }) {
         },
         cadastroButton: {
         position: 'absolute',
-        top: 700, 
+        top: 630, 
         left: 175,
     },
     cadastroButtonText: {

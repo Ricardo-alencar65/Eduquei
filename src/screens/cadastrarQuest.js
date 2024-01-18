@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Picker, StyleSheet } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { Picker } from '@react-native-picker/picker'
 
 export default function CadastroQuestoes() {
     const [pergunta, setPergunta] = useState('');
